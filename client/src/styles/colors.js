@@ -9,10 +9,10 @@ const colors = {
 	bodyBg:"rgb(23, 23, 23)",
 	bodyBorder:"rgba(60, 60, 60,0.5)",
 	bodyFont1:"rgb(40, 254, 14)",
-	bodyFont2:"rgb(40, 254, 14)",
+	bodyFont2:"rgb(94, 192, 206)",
 	bodyFont3:"rgb(40, 254, 14)",
 	windowShadow:"rgba(0, 0, 0, 0.2)",
-	labelColor:"rgb(255, 95, 88)"
+	labelColor:"rgb(255, 95, 88)",
 };
 
 export default colors;

@@ -31,6 +31,7 @@ const StyledDot = styled.div`
     width: 1rem;
     border-radius:50%;
 	margin: 0 0 0 0.75rem;
+	cursor: pointer;
 `
 
 const TitleContainer = styled.div`
@@ -38,15 +39,15 @@ const TitleContainer = styled.div`
 	top:50%;
 	left:50%;
 	transform: translate(-50%,-50%);
-	width: 100%;
+	width: 60%;
     text-align: center;
 `
 
 const Title = styled.p`
 	color: ${theme.titleFont};
-	line-height: 1;
+	line-height: 1.4;
 	letter-spacing: -0.25px;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	font-weight: 600;
 `
 
@@ -63,9 +64,9 @@ const Dot = (props) => {
 	)
 }
 
-const HeadingBar = () => {
+const HeadingBar = (props) => {
 	return (
-		<Wrapper>
+		<Wrapper className={props.altClassName}>
 			<DotContainer>
 				<Dot variant="1"/>
 				<Dot variant="2"/>
@@ -73,7 +74,10 @@ const HeadingBar = () => {
 			</DotContainer>
 			<TitleContainer>
 				<Title>
-					<Icon src={icon} /> boidushya@epicest: ~/Documents/portfolio — zsh — 100×35
+					<Icon
+						src={icon}
+						alt="home icon"
+					/> boidushya@epicest: ~/Documents/portfolio — zsh — 100×35
 				</Title>
 			</TitleContainer>
 		</Wrapper>

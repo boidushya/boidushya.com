@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 	flex:1;
 	max-width:100%;
 	min-height: 32rem;
+	height:100%;
 	background: ${theme.bodyBg};
 	border-radius: 0 0 0.3rem 0.3rem;
 	border: 1px solid ${theme.bodyBorder};

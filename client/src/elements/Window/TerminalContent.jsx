@@ -2,11 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 // eslint-disable-next-line
 import styled, { css, keyframes } from "styled-components";
 import theme from "../../styles/theme";
+import getResponse from "../../utils/responseFetcher";
 
 const Wrapper = styled.div`
 	font-family: "Hack", monospace;
 	color:${theme.bodyFont1};
-	padding: 0.2rem 0.4rem;
+	padding: 0.2rem 0.4rem 0 0.4rem;
 	line-height: 1.5;
 	font-smooth: always;
 	width: 100%;
@@ -25,6 +26,10 @@ const Input = styled.input`
 	caret-color: transparent;
 	width:0;
 	max-width: 100%;
+	&::selection{
+		color:${theme.bodyBg};
+		background:${theme.bodyBg.negate()};
+	}
 `
 
 const InputContainer = styled.span`
@@ -42,10 +47,11 @@ const blink = keyframes`
 `;
 
 const typingMixin = css`
-	animation: ${blink} 0.8s step-end infinite;
+	animation: ${blink} 1s step-end infinite;
 `
 
 const Cursor = styled.div`
+	display:${props=>props.disabled?`none`:`auto`};
 	width:1ch;
 	background: ${theme.bodyFont1};
 	margin: 0.1rem 0.3rem;
@@ -57,13 +63,24 @@ const Label = styled.label`
 	color: ${theme.labelColor}
 `
 
-const InputLine = () => {
+const InputLine = (props) => {
 	const [val, setVal] = useState("");
 	const [typing, setTyping] = useState(false);
+	// eslint-disable-next-line
+	const [disabled, setDisabled] = useState(false)
 	const inputRef = useRef();
 	const cursorRef = useRef();
 	useEffect(() => {
-		inputRef.current.focus()
+		if(!disabled){
+			inputRef.current.focus();
+			inputRef.current.addEventListener("select",(e)=>{
+				e.target.selectionStart = e.target.selectionEnd
+			});
+			inputRef.current.addEventListener("mousedown",(e)=>{
+				e.preventDefault()
+			});
+		}
+	//eslint-disable-next-line
 	}, [])
 
 	useEffect(() => {
@@ -74,16 +91,17 @@ const InputLine = () => {
 	}, [typing]);
 	return (
 		<InputContainer>
-			<Label htmlFor="input">$boidushya~&nbsp;</Label>
+			<Label htmlFor="input">root@boidushya:~&nbsp;</Label>
 			<Input
 				id="input"
 				type="text"
 				ref={inputRef}
 				value={val}
 				onBlur={(e)=>{
-					e.target.focus()
-				}
-				}
+					if(!disabled){
+						e.target.focus()
+					}
+				}}
 				onKeyDown={(e)=>{
 					let ctrlCheck = false
 					if(e.ctrlKey){
@@ -112,15 +130,22 @@ const InputLine = () => {
 								e.preventDefault();
 							}
 							break;
+						case "Enter":
+							setDisabled(true);
+							props.setData(val)
+							props.setChild(props.child+1)
+							break;
 						default:
 							break;
 					}
 				}}
 				onChange = {(e)=>{
 					e.preventDefault()
-					setVal(e.target.value);
-					setTyping(true);
-					e.target.style.width = e.target.value.length + "ch";
+					if(e.target.value.length<=100){
+						setVal(e.target.value);
+						setTyping(true);
+						e.target.style.width = e.target.value.length + "ch";
+					}
 				}}
 				spellCheck={false}
 				autoComplete="off"
@@ -129,6 +154,7 @@ const InputLine = () => {
 			<Cursor
 				ref={cursorRef}
 				typing={typing}
+				disabled={disabled}
 				style={{
 					transform: "translateX(-0.5ch)"
 				}}
@@ -137,10 +163,45 @@ const InputLine = () => {
 	)
 }
 
-const TerminalContent = () => {
+const Response = (props) => {
+	return (
+		<Line>
+			{props.content}
+		</Line>
+	)
+}
+
+const Command = (props) => {
+	const [response, setResponse] = useState("")
+	const [data, setData] = useState("")
+	useEffect(() => {
+		if(data.length){
+			setResponse(getResponse(data.trim()))
+		}
+	}, [data])
 	return (
 		<Wrapper>
-			<InputLine />
+			<InputLine
+				setChild={props.setChild}
+				child={props.child}
+				setData={setData}
+			/>
+			<Response content={response}/>
+		</Wrapper>
+	)
+}
+
+const TerminalContent = () => {
+	const [child, setChild] = useState(1)
+	return (
+		<Wrapper>
+			{Array.from(Array(child).keys()).map(i=>(
+				<Command
+					setChild={setChild}
+					child={child}
+					key={i}
+				/>
+		))}
 		</Wrapper>
 	)
 }

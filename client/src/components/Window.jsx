@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import HeadingBar from "../elements/Window/HeadingBar";
 import BodyContent from "../elements/Window/BodyContent";
-import bg from "../static/bg5.jpg";
+import HeadingBar from "../elements/Window/HeadingBar";
+import Draggable from 'react-draggable';
+import bg from "../static/bg5small.jpg";
 import theme from "../styles/theme";
 
 const Wrapper = styled.div`
@@ -11,21 +12,50 @@ const Wrapper = styled.div`
 	min-height: 100vh;
 	background: url(${bg}) no-repeat center center;
 	background-size: cover;
+	overflow: hidden;
 `
 
 const Container = styled.div`
 	width: 75%;
 	border-radius:0.6rem 0.6rem 0.3rem 0.3rem;
 	box-shadow: ${theme.windowShadow} 0px 1px 4px;
+	resize:both;
+	overflow:hidden;
+	min-width: 70%;
+	min-height:25%;
+	max-height: 90%;
+	max-width: 80%;
 `
 
 const Terminal = () => {
+	const BOUND = 512
 	return (
 		<Wrapper>
-			<Container>
-				<HeadingBar/>
-				<BodyContent/>
-			</Container>
+			<Draggable
+				bounds={{
+					top: -128,
+					left: -BOUND,
+					right: BOUND,
+					bottom: BOUND
+				}}
+				handle=".heading-bar"
+			>
+				<Container
+					onContextMenu={(e)=>{
+						e.preventDefault()
+						navigator.clipboard.readText()
+						.then((text) => {
+							console.log(text)
+						})
+						.catch((err) => {
+							console.log('Something went wrong', err);
+						});
+					}}
+				>
+					<HeadingBar altClassName="heading-bar"/>
+					<BodyContent/>
+				</Container>
+			</Draggable>
 		</Wrapper>
 	)
 }
