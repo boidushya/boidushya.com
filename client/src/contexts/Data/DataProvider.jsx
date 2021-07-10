@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import DataContext from "./UserContext";
+import DataContext from "./DataContext";
 import { initialState } from "./initialState";
 import { reducer } from "./reducer";
 
@@ -19,7 +19,7 @@ const DataProvider = (props) => {
 				setData,
 			}}
 		>
-		{props.children}
+			{props.children}
 		</DataContext.Provider>
 	);
 };

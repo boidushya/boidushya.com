@@ -176,9 +176,13 @@ const Command = (props) => {
 	const [data, setData] = useState("")
 	useEffect(() => {
 		if(data.length){
+			if(data.trim().toLowerCase()==="clear"){
+				props.setActive(false)
+				props.setChild(1)
+			}
 			setResponse(getResponse(data.trim()))
 		}
-	}, [data])
+	}, [data,props])
 	return (
 		<Wrapper>
 			<InputLine
@@ -193,15 +197,20 @@ const Command = (props) => {
 
 const TerminalContent = () => {
 	const [child, setChild] = useState(1)
+	const [ active,setActive ] = useState(true)
+	useEffect(() => {
+		setActive(true)
+	}, [active])
 	return (
 		<Wrapper>
 			{Array.from(Array(child).keys()).map(i=>(
 				<Command
 					setChild={setChild}
+					setActive={setActive}
 					child={child}
-					key={i}
+					key={i===0?(active&&i):i}
 				/>
-		))}
+			))}
 		</Wrapper>
 	)
 }
