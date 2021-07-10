@@ -6,17 +6,17 @@ import { reducer } from "./reducer";
 const DataProvider = (props) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	const setData = (data) =>
+	const setCommand = (command) =>
 		dispatch({
 			type: "SET",
-			payload: data,
+			payload: command,
 		});
 
 	return (
 		<DataContext.Provider
 			value={{
-				data: state.data,
-				setData,
+				commands: state.commands,
+				setCommand,
 			}}
 		>
 			{props.children}

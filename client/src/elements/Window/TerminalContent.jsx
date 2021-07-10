@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 // eslint-disable-next-line
 import styled, { css, keyframes } from "styled-components";
+import DataContext from "../../contexts/Data/DataContext";
 import theme from "../../styles/theme";
 import getResponse from "../../utils/responseFetcher";
 
@@ -65,6 +66,8 @@ const Label = styled.label`
 
 const InputLine = (props) => {
 	const [val, setVal] = useState("");
+	const { commands, setCommand } = useContext(DataContext);
+	const [ counter, setCounter ] = useState(commands.length);
 	const [typing, setTyping] = useState(false);
 	// eslint-disable-next-line
 	const [disabled, setDisabled] = useState(false)
@@ -103,14 +106,13 @@ const InputLine = (props) => {
 					}
 				}}
 				onKeyDown={(e)=>{
-					let ctrlCheck = false
+					let ctrlCheck = false;
 					if(e.ctrlKey){
 						ctrlCheck = true;
 					}
 					let currentPos = parseFloat(cursorRef.current.style.transform.slice(11));
 					let textLength = inputRef.current.value.length
 					let checkPos = Math.abs(Math.floor(currentPos))
-					// console.log(checkPos,textLength);
 					switch(e.key){
 						case "ArrowLeft":
 							if(checkPos<=textLength && !ctrlCheck){
@@ -130,12 +132,39 @@ const InputLine = (props) => {
 								e.preventDefault();
 							}
 							break;
+						case "ArrowUp":
+							if(counter>0){
+								setCounter(counter-1);
+								let currentCommand = commands[counter-1]
+								setVal(currentCommand);
+								e.target.style.width = currentCommand.length + "ch";
+								cursorRef.current.style.transform = `translateX(${-currentCommand.length-0.5}ch)`
+							}
+							break;
+						case "ArrowDown":
+							if(counter<=commands.length-1){
+								if(counter===commands.length-1){
+									setVal("");
+									e.target.style.width = "0ch";
+									cursorRef.current.style.transform = `translateX(-0.5ch)`
+								}
+								else{
+									setCounter(counter+1);
+									let currentCommand = commands[counter+1]
+									setVal(currentCommand);
+									e.target.style.width = currentCommand.length + "ch";
+									cursorRef.current.style.transform = `translateX(${-currentCommand.length-0.5}ch)`
+								}
+							}
+							break;
 						case "Enter":
 							setDisabled(true);
 							props.setData(val)
 							props.setChild(props.child+1)
+							setCommand(val)
 							break;
 						default:
+							// console.log(e.key)
 							break;
 					}
 				}}
