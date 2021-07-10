@@ -10,8 +10,6 @@ const config = {
 	projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID
 };
 
-console.log(config)
-
 const initFirebase = () => {
 	if(!firebase.apps.length){
 		firebase.initializeApp(config);
