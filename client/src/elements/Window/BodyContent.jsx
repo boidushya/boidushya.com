@@ -3,8 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import TerminalContent from "./TerminalContent";
 import theme from "../../styles/theme";
-import SimpleBarReact from "simplebar-react";
-import "simplebar/src/simplebar.css";
 
 const Wrapper = styled.div`
 	display:flex;
