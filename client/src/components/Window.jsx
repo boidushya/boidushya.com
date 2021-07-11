@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import BodyContent from "../elements/Window/BodyContent";
 import HeadingBar from "../elements/Window/HeadingBar";
 import Draggable from 'react-draggable';
 import bg from "../static/bg5small.jpg";
 import theme from "../styles/theme";
-import DataContext from "../contexts/Data/DataContext";
 
 const Wrapper = styled.div`
 	display: grid;

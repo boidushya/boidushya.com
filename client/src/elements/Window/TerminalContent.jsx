@@ -4,6 +4,7 @@ import styled, { css, keyframes } from "styled-components";
 import DataContext from "../../contexts/Data/DataContext";
 import theme from "../../styles/theme";
 import getResponse from "../../utils/responseFetcher";
+import { sanitize } from 'dompurify';
 
 const Wrapper = styled.div`
 	font-family: "Hack", monospace;
@@ -67,7 +68,6 @@ const Label = styled.label`
 const InputLine = (props) => {
 	const [val, setVal] = useState("");
 	const { commands, setCommand, path } = useContext(DataContext);
-	console.log(commands,path)
 	const [ counter, setCounter ] = useState(commands.length);
 	const [typing, setTyping] = useState(false);
 	// eslint-disable-next-line
@@ -98,7 +98,7 @@ const InputLine = (props) => {
 			<Label
 				htmlFor="input"
 				dangerouslySetInnerHTML={{
-					__html:path
+					__html:sanitize(path)
 				}}
 			/>
 			<Input
@@ -124,6 +124,14 @@ const InputLine = (props) => {
 							if(checkPos<=textLength && !ctrlCheck){
 								setTyping(true);
 								cursorRef.current.style.transform = `translateX(${currentPos-1}ch)`
+							}
+							else{
+								e.preventDefault();
+							}
+							break;
+						case "Delete":
+							if(checkPos!==1 && !ctrlCheck){
+								cursorRef.current.style.transform = `translateX(${currentPos+1}ch)`
 							}
 							else{
 								e.preventDefault();
@@ -215,7 +223,8 @@ const Command = (props) => {
 				props.setActive(false)
 				props.setChild(1)
 			}
-			setResponse(getResponse(data.trim()))
+			let res = getResponse(data.trim())
+			setResponse(res)
 		}
 	}, [data,props])
 	return (
@@ -224,6 +233,7 @@ const Command = (props) => {
 				setChild={props.setChild}
 				child={props.child}
 				setData={setData}
+				path={props.path}
 			/>
 			<Response content={response}/>
 		</Wrapper>
@@ -239,12 +249,14 @@ const TerminalContent = () => {
 	return (
 		<Wrapper>
 			{Array.from(Array(child).keys()).map(i=>(
-				<Command
-					setChild={setChild}
-					setActive={setActive}
-					child={child}
-					key={i===0?(active&&i):i}
-				/>
+				<>
+					<Command
+						setChild={setChild}
+						setActive={setActive}
+						child={child}
+						key={i===0?(active&&i):i}
+					/>
+				</>
 			))}
 		</Wrapper>
 	)

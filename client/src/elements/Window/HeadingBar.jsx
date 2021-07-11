@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 	border: ${theme.headerBorder} 1px solid;
 	box-shadow: inset #f5f5f5 0px 2px 1px, inset #d5d5d5 0 -2px 2px;
 	user-select: none;
+	cursor:move;
 `
 
 const DotContainer = styled.div`

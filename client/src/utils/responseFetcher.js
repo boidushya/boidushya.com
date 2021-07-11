@@ -1,6 +1,8 @@
-import commands from "./commands.json";
+import { useEffect } from 'react';
+import commands from "./commands";
 import styled from "styled-components";
 import theme from "../styles/theme";
+import { sanitize } from "dompurify";
 
 // eslint-disable-next-line
 const Wrapper = styled.span`
@@ -16,7 +18,7 @@ const Wrapper = styled.span`
 		color: ${theme.bodyFont2};
 	}
 	.style3{
-		color: ${theme.bodyFont2.darken(0.5)};
+		color: ${theme.bodyFont2.darken(0.75)};
 		background: ${theme.bodyFont1};
 	}
 `
@@ -24,19 +26,40 @@ const Wrapper = styled.span`
 const getErrorCommand = (command) => {
 	return (
 		<Wrapper>
-			zsh: command not found: <span className="style2">{command}</span>
+			zsh: command not found: <span className="style2">{sanitize(command)}</span>
 		</Wrapper>
+	)
+}
+
+const Action = (props) => {
+	useEffect(() => {
+		if(props.action){
+			switch(Object.keys(props.action)[0]){
+				case "PATH":
+					window.open(props.action.PATH)
+					break;
+				default:
+					break;
+			}
+
+		}
+	}, [])
+	return (
+		<></>
 	)
 }
 
 const parseResponse = (command,{data}) => {
 	let response = command.response
 	return (
-		<Wrapper
-			dangerouslySetInnerHTML={{
-				__html:response.replace(/%arg%/g,`<span class="style2">${data}</span>`)
-			}}
-		/>
+		<>
+			<Action action={command.action}/>
+			<Wrapper
+				dangerouslySetInnerHTML={{
+					__html:response.replace(/%arg%/g,`<span class="style2">${sanitize(data)}</span>`)
+				}}
+			/>
+		</>
 	)
 }
 
