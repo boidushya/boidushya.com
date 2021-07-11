@@ -7,6 +7,7 @@ import {
 	Route,
 } from "react-router-dom";
 import Window from "../components/Window";
+import Danger from "../components/Danger";
 
 const Homepage = () => {
 	return (
@@ -16,6 +17,11 @@ const Homepage = () => {
 					path="/"
 					exact
 					component={Window}
+				/>
+				<Route
+					path="/danger-zone"
+					exact
+					component={Danger}
 				/>
 			</Switch>
 		</Router>

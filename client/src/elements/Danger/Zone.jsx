@@ -1,10 +1,6 @@
 import React from "react";
-// eslint-disable-next-line
 import styled from "styled-components";
-import TerminalContent from "./TerminalContent";
 import theme from "../../styles/theme";
-import SimpleBarReact from "simplebar-react";
-import "simplebar/src/simplebar.css";
 
 const Wrapper = styled.div`
 	display:flex;
@@ -14,16 +10,20 @@ const Wrapper = styled.div`
 	height:100%;
 	background: ${theme.bodyBg};
 	border-radius: 0 0 0.3rem 0.3rem;
-	border: 1px solid ${theme.bodyBorder};
 	opacity: 0.85;
+	overflow:hidden;
 `
 
-const BodyContent = () => {
+const Iframe = styled.iframe`
+	width: 100%;
+	border:none;
+`
+const Zone = () => {
 	return (
 		<Wrapper>
-			<TerminalContent/>
+			<Iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></Iframe>
 		</Wrapper>
 	)
 }
 
-export default BodyContent
+export default Zone

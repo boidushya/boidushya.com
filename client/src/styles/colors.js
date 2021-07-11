@@ -13,6 +13,7 @@ const colors = {
 	bodyFont3:"rgb(255, 95, 88)",
 	windowShadow:"rgba(0, 0, 0, 0.2)",
 	labelColor:"rgb(255, 95, 88)",
+	scrollbarThumb:"rgb(85, 85, 85)",
 };
 
 export default colors;

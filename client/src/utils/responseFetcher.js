@@ -21,6 +21,9 @@ const Wrapper = styled.span`
 		color: ${theme.bodyFont2.darken(0.75)};
 		background: ${theme.bodyFont1};
 	}
+	.style4{
+		color: ${theme.bodyFont3};
+	}
 `
 
 const getErrorCommand = (command) => {
@@ -43,6 +46,7 @@ const Action = (props) => {
 			}
 
 		}
+	//eslint-disable-next-line
 	}, [])
 	return (
 		<></>

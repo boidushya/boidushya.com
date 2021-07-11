@@ -5,18 +5,41 @@ import DataContext from "../../contexts/Data/DataContext";
 import theme from "../../styles/theme";
 import getResponse from "../../utils/responseFetcher";
 import { sanitize } from 'dompurify';
+import SimpleBarReact from "simplebar-react";
+import "simplebar/src/simplebar.css";
 
 const Wrapper = styled.div`
 	font-family: "Hack", monospace;
 	color:${theme.bodyFont1};
 	padding: 0.2rem 0.4rem 0 0.4rem;
 	line-height: 1.5;
-	font-smooth: always;
 	width: 100%;
 `
 
 //eslint-disable-next-line
-const Line = styled.p``
+const Line = styled(SimpleBarReact)`
+	// white-space: pre;
+	overflow: auto;
+	.simplebar-scrollbar:before{
+		border-radius: 10px;
+		background-color: ${theme.scrollbarThumb};
+	}
+	// &::-webkit-scrollbar-track {
+	// 	border-radius: 10px;
+	// 	background-color: inherit;
+	// }
+
+	// &::-webkit-scrollbar {
+	// 	width: 0.1rem;
+	// 	height: 0.5rem;
+	// 	background-color: inherit;
+	// }
+
+	// &::-webkit-scrollbar-thumb {
+	// 	border-radius: 10px;
+	// 	background-color: ${theme.scrollbarThumb};
+	// }
+`
 
 const Input = styled.input`
 	font-family:inherit;
@@ -207,8 +230,11 @@ const InputLine = (props) => {
 }
 
 const Response = (props) => {
+	const responseRef = useRef()
 	return (
-		<Line>
+		<Line
+			ref={responseRef}
+		>
 			{props.content}
 		</Line>
 	)
@@ -249,14 +275,12 @@ const TerminalContent = () => {
 	return (
 		<Wrapper>
 			{Array.from(Array(child).keys()).map(i=>(
-				<>
-					<Command
-						setChild={setChild}
-						setActive={setActive}
-						child={child}
-						key={i===0?(active&&i):i}
-					/>
-				</>
+				<Command
+					setChild={setChild}
+					setActive={setActive}
+					child={child}
+					key={i===0?(active&&i):i}
+				/>
 			))}
 		</Wrapper>
 	)

@@ -1,3 +1,5 @@
+import neofetch from "./neofetch";
+
 const compileResponseHTML = (styleMap) => {
 	return styleMap.map((item)=>{
 		return `<span class="${item.folder?`style3`:`${item.executable?`style2`:`style1`}`}">${item.link?`<a target="_blank" href="${item.link}">${item.name}</a>`:`${item.name}`}</span>`
@@ -69,22 +71,6 @@ const commands = {
 	"cd": {
 		"validArgs": getArgListCd(fileList)
 	},
-	"mv": {
-		"validArgs": {
-			"/": {
-				"action": null,
-				"response": "ls: cannot access System Volume Information: Permission Denied"
-			},
-			"_dir": {
-				"action": null,
-				"response": "<span class=\"style1\"><a target=\"_blank\" href=\"https://github.com/boidushya\">.git</a></span>  <span class=\"style2\">src</span>  <span class=\"style3\">resume.pdf</span>"
-			},
-			"default": {
-				"action": null,
-				"response": "ls: cannot access %arg%: Permission Denied"
-			}
-		}
-	},
 	"./resume.sh": {
 		"validArgs": {
 			"/": {
@@ -101,6 +87,18 @@ const commands = {
 			}
 		}
 	},
+	"neofetch":{
+		"validArgs": {
+			"_dir": {
+				"action": null,
+				"response": `<pre>${neofetch}</pre>`
+			},
+			"default": {
+				"action": null,
+				"response": `<pre>${neofetch}</pre>`
+			}
+		}
+	}
 }
 
 export default commands

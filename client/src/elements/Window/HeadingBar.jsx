@@ -78,7 +78,7 @@ const HeadingBar = (props) => {
 					<Icon
 						src={icon}
 						alt="home icon"
-					/> boidushya@epicest: ~/Documents/portfolio — zsh — 100×35
+					/> {props.heading}
 				</Title>
 			</TitleContainer>
 		</Wrapper>

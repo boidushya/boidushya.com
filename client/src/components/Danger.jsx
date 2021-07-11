@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import BodyContent from "../elements/Window/BodyContent";
 import HeadingBar from "../elements/Window/HeadingBar";
+import Zone from "../elements/Danger/Zone";
 import Draggable from 'react-draggable';
 import bg from "../static/bg5small.jpg";
 import theme from "../styles/theme";
@@ -45,17 +45,10 @@ const Terminal = () => {
 				<Container
 					onContextMenu={(e)=>{
 						e.preventDefault()
-						// navigator.clipboard.readText()
-						// .then((text) => {
-						// 	setCommand(text)
-						// })
-						// .catch((err) => {
-						// 	console.log('Something went wrong', err);
-						// });
 					}}
 				>
-					<HeadingBar altClassName="heading-bar" heading={`boidushya@epicest: ~/Documents/portfolio — zsh — 100×35`}/>
-					<BodyContent/>
+					<HeadingBar altClassName="heading-bar" heading={`Rick Astley - Never Gonna Give You Up (Official Music Video)`}/>
+					<Zone/>
 				</Container>
 			</Draggable>
 		</Wrapper>
