@@ -71,7 +71,7 @@ const commands = {
 	"cd": {
 		"validArgs": getArgListCd(fileList)
 	},
-	"./resume.sh": {
+	"resume": {
 		"validArgs": {
 			"/": {
 				"action": null,

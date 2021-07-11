@@ -1,7 +1,6 @@
 # TODO
 
-[] [vscode](https://github.com/conwnet/github1s)
-
-[] neofetch
-
-[] src link
+- [ ] [vscode](https://github.com/conwnet/github1s)
+- [x] neofetch
+- [x] src link
+- [ ] command system for executable files needs to be dynamic
