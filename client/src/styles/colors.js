@@ -7,10 +7,10 @@ const colors = {
 	dot3:"rgb(40, 201, 65)",
 	titleFont:"rgb(100, 100, 100)",
 	bodyBg:"rgb(23, 23, 23)",
-	bodyBorder:"rgba(60, 60, 60,0.5)",
+	bodyBorder:"rgb(60, 60, 60)",
 	bodyFont1:"rgb(40, 254, 14)",
 	bodyFont2:"rgb(94, 192, 206)",
-	bodyFont3:"rgb(40, 254, 14)",
+	bodyFont3:"rgb(255, 95, 88)",
 	windowShadow:"rgba(0, 0, 0, 0.2)",
 	labelColor:"rgb(255, 95, 88)",
 };

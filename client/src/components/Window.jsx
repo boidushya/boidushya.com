@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import BodyContent from "../elements/Window/BodyContent";
 import HeadingBar from "../elements/Window/HeadingBar";
 import Draggable from 'react-draggable';
 import bg from "../static/bg5small.jpg";
 import theme from "../styles/theme";
+import DataContext from "../contexts/Data/DataContext";
 
 const Wrapper = styled.div`
 	display: grid;
@@ -25,9 +26,11 @@ const Container = styled.div`
 	min-height:25%;
 	max-height: 90%;
 	max-width: 80%;
+	backdrop-filter: blur(1rem);
 `
 
 const Terminal = () => {
+	// const { setCommand, setPath } = useContext(DataContext);
 	const BOUND = 512
 	return (
 		<Wrapper>
@@ -43,13 +46,13 @@ const Terminal = () => {
 				<Container
 					onContextMenu={(e)=>{
 						e.preventDefault()
-						navigator.clipboard.readText()
-						.then((text) => {
-							console.log(text)
-						})
-						.catch((err) => {
-							console.log('Something went wrong', err);
-						});
+						// navigator.clipboard.readText()
+						// .then((text) => {
+						// 	setCommand(text)
+						// })
+						// .catch((err) => {
+						// 	console.log('Something went wrong', err);
+						// });
 					}}
 				>
 					<HeadingBar altClassName="heading-bar"/>

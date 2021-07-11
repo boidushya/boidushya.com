@@ -66,7 +66,8 @@ const Label = styled.label`
 
 const InputLine = (props) => {
 	const [val, setVal] = useState("");
-	const { commands, setCommand } = useContext(DataContext);
+	const { commands, setCommand, path } = useContext(DataContext);
+	console.log(commands,path)
 	const [ counter, setCounter ] = useState(commands.length);
 	const [typing, setTyping] = useState(false);
 	// eslint-disable-next-line
@@ -94,7 +95,12 @@ const InputLine = (props) => {
 	}, [typing]);
 	return (
 		<InputContainer>
-			<Label htmlFor="input">root@boidushya:~&nbsp;</Label>
+			<Label
+				htmlFor="input"
+				dangerouslySetInnerHTML={{
+					__html:path
+				}}
+			/>
 			<Input
 				id="input"
 				type="text"

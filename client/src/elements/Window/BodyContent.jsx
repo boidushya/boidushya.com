@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 	background: ${theme.bodyBg};
 	border-radius: 0 0 0.3rem 0.3rem;
 	border: 1px solid ${theme.bodyBorder};
-	opacity: 0.95;
+	opacity: 0.85;
 `
 
 const BodyContent = () => {

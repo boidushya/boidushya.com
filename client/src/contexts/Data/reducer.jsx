@@ -4,7 +4,13 @@ export const reducer = (state, action) => {
 			let commands = state.commands;
 			commands.push(action.payload)
 			return {
+				...state,
 				commands: commands,
+			};
+		case "PATH":
+			return {
+				...state,
+				path: action.payload,
 			};
 		default:
 			throw new Error(`Unhandled action type: ${action.type}`);

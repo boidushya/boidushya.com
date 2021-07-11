@@ -1,3 +1,4 @@
 export const initialState = {
-	commands:[]
+	commands:[],
+	path:"root@boidushya:~&nbsp;"
 };
