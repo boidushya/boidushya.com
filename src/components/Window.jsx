@@ -4,7 +4,7 @@ import BodyContent from "../elements/Window/BodyContent";
 
 const VSCode = () => {
 	return (
-		<Default heading="boidushya@epicest: ~/Documents/portfolio — zsh — 100×35">
+		<Default contextMenu={true} heading="boidushya@epicest: ~/Documents/portfolio — zsh — 100×35">
 			<BodyContent/>
 		</Default>
 	)

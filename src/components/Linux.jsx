@@ -47,7 +47,7 @@ const Arch = () => {
 					url: vgaBios,
 				},
 				cdrom: {
-					url: image,
+					url: "/iso/linux3.iso",
 					async:true
 				},
 				autostart: true,
@@ -88,7 +88,7 @@ const Arch = () => {
 	//eslint-disable-next-line
 	}, [])
 	return (
-		<Default heading="qemu" contextMenu={true}>
+		<Default heading="qemu" contextMenu={true} resizable={false}>
 			<Screen ref={screenRef}>
 				<Container/>
 				<Canvas></Canvas>
