@@ -48,7 +48,7 @@ const Arch = () => {
 					url: vgaBios,
 				},
 				cdrom: {
-					url: "/iso/linux3.iso",
+					url: "https://k.copy.sh/linux3.iso",
 					async:true
 				},
 				autostart: true,
