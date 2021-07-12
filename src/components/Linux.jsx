@@ -48,7 +48,7 @@ const Arch = () => {
 					url: vgaBios,
 				},
 				cdrom: {
-					url: "https://k.copy.sh/linux3.iso",
+					url: "https://firebasestorage.googleapis.com/v0/b/boidushya.appspot.com/o/linux3.iso?alt=media&token=0b18a02f-d6ba-4d6e-a685-3857846e0aa0",
 					async:true
 				},
 				autostart: true,
