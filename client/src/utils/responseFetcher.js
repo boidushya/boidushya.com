@@ -41,6 +41,12 @@ const Action = (props) => {
 				case "PATH":
 					window.open(props.action.PATH)
 					break;
+				case "CODE":
+					document.location.href = "/vscode"
+					break;
+				case "DANGER":
+					document.location.href = "/danger-zone"
+					break;
 				default:
 					break;
 			}

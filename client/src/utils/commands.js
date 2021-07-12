@@ -21,7 +21,7 @@ const fileList = [
 	},
 	{
 		name:"resume",
-		link:null,
+		link:"https://github.com/sb2nov/resume",
 		folder:false,
 		executable:true,
 	},
@@ -98,7 +98,35 @@ const commands = {
 				"response": `<pre>${neofetch}</pre>`
 			}
 		}
-	}
+	},
+	"danger":{
+		"validArgs": {
+			"_dir": {
+				"action": {"DANGER":""},
+				"response": ""
+			},
+			"default": {
+				"action": {"DANGER":""},
+				"response": ""
+			}
+		}
+	},
+	"code":{
+		"validArgs": {
+			"_dir": {
+				"action": {"CODE":""},
+				"response": ""
+			},
+			".": {
+				"action": {"CODE":""},
+				"response": ""
+			},
+			"default": {
+				"action": {"CODE":""},
+				"response": ""
+			}
+		}
+	},
 }
 
 export default commands

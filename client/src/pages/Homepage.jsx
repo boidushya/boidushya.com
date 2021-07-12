@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Window from "../components/Window";
 import Danger from "../components/Danger";
+import VSCode from "../components/VSCode";
 
 const Homepage = () => {
 	return (
@@ -22,6 +23,11 @@ const Homepage = () => {
 					path="/danger-zone"
 					exact
 					component={Danger}
+				/>
+				<Route
+					path="/vscode"
+					exact
+					component={VSCode}
 				/>
 			</Switch>
 		</Router>
