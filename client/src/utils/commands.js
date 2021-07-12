@@ -127,6 +127,18 @@ const commands = {
 			}
 		}
 	},
+	"qemu": {
+		"validArgs": {
+			"_dir": {
+				"action": { "QEMU": "" },
+				"response": ""
+			},
+			"default": {
+				"action": { "QEMU": "" },
+				"response": ""
+			}
+		}
+	},
 }
 
 export default commands

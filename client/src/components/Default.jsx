@@ -18,17 +18,22 @@ const Container = styled.div`
 	width: 75%;
 	border-radius:0.6rem 0.6rem 0.3rem 0.3rem;
 	box-shadow: ${theme.windowShadow} 0px 1px 4px;
-	resize:both;
+	resize:${props=>props.resizable?`both`:`none`};
 	overflow:hidden;
 	min-width: 70%;
 	min-height:25%;
 	max-height: 90%;
 	max-width: 80%;
 	backdrop-filter: blur(1rem);
+	${props=>props.height&&`height: ${props.height}`}
 `
 
 const Default = (props) => {
 	// const { setCommand, setPath } = useContext(DataContext);
+	let resizable = false;
+	if(props.resizable === undefined){
+		resizable = true;
+	}
 	const BOUND = 512
 	return (
 		<Wrapper>
@@ -42,8 +47,10 @@ const Default = (props) => {
 				handle=".heading-bar"
 			>
 				<Container
+					height={props.height}
+					resizable={resizable}
 					onContextMenu={(e)=>{
-						e.preventDefault()
+						!props.contextMenu&&e.preventDefault()
 					}}
 				>
 					<HeadingBar altClassName="heading-bar" heading={props.heading}/>

@@ -9,6 +9,7 @@ import {
 import Window from "../components/Window";
 import Danger from "../components/Danger";
 import VSCode from "../components/VSCode";
+import Linux from "../components/Linux";
 
 const Homepage = () => {
 	return (
@@ -28,6 +29,11 @@ const Homepage = () => {
 					path="/vscode"
 					exact
 					component={VSCode}
+				/>
+				<Route
+					path="/qemu"
+					exact
+					component={Linux}
 				/>
 			</Switch>
 		</Router>

@@ -4,7 +4,7 @@ import Default from "./Default";
 
 const VSCode = () => {
 	return (
-		<Default heading="Visual Studio Code">
+		<Default height="90%" heading="Visual Studio Code" resizable={false}>
 			<VSCodeContent/>
 		</Default>
 	)

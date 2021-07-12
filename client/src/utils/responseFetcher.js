@@ -47,6 +47,9 @@ const Action = (props) => {
 				case "DANGER":
 					document.location.href = "/danger-zone"
 					break;
+				case "QEMU":
+					document.location.href = "/qemu"
+					break;
 				default:
 					break;
 			}

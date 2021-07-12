@@ -16,6 +16,7 @@ const Wrapper = styled.div`
 
 const Iframe = styled.iframe`
 	width: 100%;
+	height:95%;
 	border:none;
 `
 

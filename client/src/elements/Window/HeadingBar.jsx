@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import theme from "../../styles/theme";
 import icon from "../../static/home.png";
+import { useHistory } from "react-router-dom";
 
 const Wrapper = styled.div`
 	display: flex;
@@ -66,9 +67,10 @@ const Dot = (props) => {
 }
 
 const HeadingBar = (props) => {
+	let history = useHistory();
 	return (
 		<Wrapper className={props.altClassName}>
-			<DotContainer>
+			<DotContainer  onClick={() =>{ history.goBack()}}>
 				<Dot variant="1"/>
 				<Dot variant="2"/>
 				<Dot variant="3"/>
