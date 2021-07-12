@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { V86Starter } from "v86";
 import bios from "v86/bios/bochs-bios.bin";
 import vgaBios from "v86/bios/bochs-vgabios.bin";
+//eslint-disable-next-line
 import image from "v86/images/linux3.iso";
 import Default from "./Default";
 import theme from "../styles/theme";
