@@ -16,14 +16,16 @@ const Wrapper = styled.div`
 
 const Iframe = styled.iframe`
 	width: 100%;
+	height:95%;
 	border:none;
 `
-const Zone = () => {
+
+const ResumeContent = () => {
 	return (
 		<Wrapper>
-			<Iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0" frameborder="0" allow="accelerometer; autoplay;"></Iframe>
+			<Iframe src="https://firebasestorage.googleapis.com/v0/b/boidushya.appspot.com/o/Boidushya's%20Resume.pdf?alt=media" frameBorder="0" title="Boidushya's Resume"></Iframe>
 		</Wrapper>
 	)
 }
 
-export default Zone
+export default ResumeContent

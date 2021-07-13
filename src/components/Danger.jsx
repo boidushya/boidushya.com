@@ -1,11 +1,17 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
+import Loader from "../elements/Loader/Loader";
 import Default from "./Default";
-import Zone from "../elements/Danger/Zone";
+
+const Zone = lazy(() => import("../elements/Danger/Zone"));
 
 const VSCode = () => {
 	return (
 		<Default heading="Rick Astley - Never Gonna Give You Up (Official Music Video)">
-			<Zone/>
+			<Suspense fallback={
+				<Loader/>
+			}>
+				<Zone/>
+			</Suspense>
 		</Default>
 	)
 }

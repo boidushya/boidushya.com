@@ -5,39 +5,59 @@ const compileResponseHTML = (styleMap) => {
 		return `<span class="${item.folder?`style3`:`${item.executable?`style2`:`style1`}`}">${item.link?`<a target="_blank" href="${item.link}">${item.name}</a>`:`${item.name}`}</span>`
 	}).join("  ")
 }
+const compileCommandHTML = (commandList) => {
+	let defArgs = ["ls", "cd", "clear"]
+	return [...defArgs, ...commandList.map(item => {
+		return item.name[0];
+	})]
+}
 
 const commandList = [
 	{
 		"name":["resume","./resume"],
-		"action": { "RESUME":"https://firebasestorage.googleapis.com/v0/b/boidushya.appspot.com/o/Boidushya's%20Resume.pdf?alt=media"},
+		"action": { "RESUME":""},
 		"response":"",
 		"subPathStrict":[false],
+		"description":"View my resume"
 	},
 	{
 		"name": ["neofetch"],
 		"action": false,
 		"response": `<pre>${neofetch}</pre>`,
 		"subPathStrict": [false],
+		"description": "Neofetch displays information about your operating system, software and hardware in an aesthetic and visually pleasing way."
 	},
 	{
 		"name": ["code"],
 		"action": true,
 		"response": "",
-		"subPathStrict": [true, "."],
+		"subPathStrict": [true, ["."]],
+		"description": "Opens a VS code window for this website's source code"
 	},
 	{
 		"name": ["danger"],
 		"action": true,
 		"response": "",
 		"subPathStrict": [false],
+		"description": "¯\\_(ツ)_/¯"
 	},
 	{
 		"name": ["qemu"],
 		"action": true,
 		"response": "",
 		"subPathStrict": [false],
+		"description": "A linux emulator that runs right on your browser (I had to flex I'm sorry)"
 	}
 ]
+
+commandList.push({
+	"name": ["help"],
+	"action": false,
+	"response": `<pre>${JSON.stringify(compileCommandHTML(commandList))}</pre>`,
+	"subPathStrict": [true,"%cmd%"],
+	"description":"Displays this message "
+})
+
 
 const fileList = [
 	{

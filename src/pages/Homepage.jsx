@@ -10,6 +10,7 @@ import Window from "../components/Window";
 import Danger from "../components/Danger";
 import VSCode from "../components/VSCode";
 import Linux from "../components/Linux";
+import Resume from "../components/Resume";
 
 const Homepage = () => {
 	return (
@@ -34,6 +35,11 @@ const Homepage = () => {
 					path="/qemu"
 					exact
 					component={Linux}
+				/>
+				<Route
+					path="/resume"
+					exact
+					component={Resume}
 				/>
 			</Switch>
 		</Router>

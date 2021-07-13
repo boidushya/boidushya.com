@@ -23,7 +23,7 @@ const Iframe = styled.iframe`
 const VSCodeContent = () => {
 	return (
 		<Wrapper>
-			<Iframe src="https://github1s.com/boidushya/framebot" frameBorder="0" title="VsCode"></Iframe>
+			<Iframe src="https://github.com/Boidushya/boidushya.com" frameBorder="0" title="VsCode"></Iframe>
 		</Wrapper>
 	)
 }

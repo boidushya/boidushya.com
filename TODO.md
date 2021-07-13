@@ -4,8 +4,9 @@
 - [x] neofetch
 - [x] src link
 - [x] qemu
-- [ ] command system for executable files needs to be dynamic
+- [x] command system for executable files needs to be dynamic
+- [ ] finish help command
 - [ ] uname
 - [ ] whoami
 - [ ] ps
-- [ ] git log --all --dec --graph
+- [ ] git log
