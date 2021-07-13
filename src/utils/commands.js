@@ -63,6 +63,7 @@ const fileList = [
 const getCommandList = (commandList) => {
 	let finalCommandList = {}
 	commandList.forEach(item => {
+		//eslint-disable-next-line
 		let commandBuilder = {}
 		item.name.forEach(elem => {
 			let action = item.action ? { [item.name[0].toUpperCase()]: "" } : null,
