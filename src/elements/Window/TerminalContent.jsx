@@ -94,7 +94,7 @@ const InputLine = (props) => {
 	const [ counter, setCounter ] = useState(commands.length);
 	const [typing, setTyping] = useState(false);
 	// eslint-disable-next-line
-	const [disabled, setDisabled] = useState(false)
+	const [disabled, setDisabled] = useState(true)
 	const inputRef = useRef();
 	const cursorRef = useRef();
 	useEffect(() => {

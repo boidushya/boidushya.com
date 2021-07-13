@@ -5,3 +5,7 @@
 - [x] src link
 - [x] qemu
 - [ ] command system for executable files needs to be dynamic
+- [ ] uname
+- [ ] whoami
+- [ ] ps
+- [ ] git log --all --dec --graph

@@ -50,6 +50,9 @@ const Action = (props) => {
 				case "QEMU":
 					document.location.href = "/qemu"
 					break;
+				case "RESUME":
+					document.location.href = "/resume"
+					break;
 				default:
 					break;
 			}

@@ -6,6 +6,39 @@ const compileResponseHTML = (styleMap) => {
 	}).join("  ")
 }
 
+const commandList = [
+	{
+		"name":["resume","./resume"],
+		"action": { "RESUME":"https://firebasestorage.googleapis.com/v0/b/boidushya.appspot.com/o/Boidushya's%20Resume.pdf?alt=media"},
+		"response":"",
+		"subPathStrict":[false],
+	},
+	{
+		"name": ["neofetch"],
+		"action": false,
+		"response": `<pre>${neofetch}</pre>`,
+		"subPathStrict": [false],
+	},
+	{
+		"name": ["code"],
+		"action": true,
+		"response": "",
+		"subPathStrict": [true, "."],
+	},
+	{
+		"name": ["danger"],
+		"action": true,
+		"response": "",
+		"subPathStrict": [false],
+	},
+	{
+		"name": ["qemu"],
+		"action": true,
+		"response": "",
+		"subPathStrict": [false],
+	}
+]
+
 const fileList = [
 	{
 		name:".github",
@@ -15,17 +48,49 @@ const fileList = [
 	},
 	{
 		name:"src",
-		link:"https://github.com/boidushya/personalsite",
+		link:"https://github.com/boidushya/boidushya.com",
 		folder:true,
 		executable:false,
 	},
 	{
 		name:"resume",
-		link:"https://github.com/sb2nov/resume",
+		link:"",
 		folder:false,
 		executable:true,
 	},
 ]
+
+const getCommandList = (commandList) => {
+	let finalCommandList = {}
+	commandList.forEach(item => {
+		let commandBuilder = {}
+		item.name.forEach(elem => {
+			let action = item.action ? { [item.name[0].toUpperCase()]: "" } : null,
+				commandBuilder = {
+					[elem]: {
+						"validArgs": {
+							"_dir": {
+								action: action,
+								response: item.response,
+							},
+							"default": {
+								action: action,
+								response: item.response,
+							}
+						}
+					}
+				}
+			if (item.subPathStrict[0]) {
+				commandBuilder[elem].validArgs[item.subPathStrict[1]] = {
+					action: action,
+					response: item.response,
+				}
+			}
+			finalCommandList = { ...finalCommandList, ...commandBuilder }
+		})
+	})
+	return finalCommandList
+}
 
 const getArgListCd = (fileList) => {
 	let defArgs = {
@@ -71,74 +136,7 @@ const commands = {
 	"cd": {
 		"validArgs": getArgListCd(fileList)
 	},
-	"resume": {
-		"validArgs": {
-			"/": {
-				"action": null,
-				"response": "ls: cannot access System Volume Information: Permission Denied"
-			},
-			"_dir": {
-				"action": null,
-				"response": "<span class=\"style1\"><a target=\"_blank\" href=\"https://github.com/boidushya\">.git</a></span>  <span class=\"style2\">src</span>  <span class=\"style3\">resume.pdf</span>"
-			},
-			"default": {
-				"action": null,
-				"response": "ls: cannot access %arg%: Permission Denied"
-			}
-		}
-	},
-	"neofetch":{
-		"validArgs": {
-			"_dir": {
-				"action": null,
-				"response": `<pre>${neofetch}</pre>`
-			},
-			"default": {
-				"action": null,
-				"response": `<pre>${neofetch}</pre>`
-			}
-		}
-	},
-	"danger":{
-		"validArgs": {
-			"_dir": {
-				"action": {"DANGER":""},
-				"response": ""
-			},
-			"default": {
-				"action": {"DANGER":""},
-				"response": ""
-			}
-		}
-	},
-	"code":{
-		"validArgs": {
-			"_dir": {
-				"action": {"CODE":""},
-				"response": ""
-			},
-			".": {
-				"action": {"CODE":""},
-				"response": ""
-			},
-			"default": {
-				"action": {"CODE":""},
-				"response": ""
-			}
-		}
-	},
-	"qemu": {
-		"validArgs": {
-			"_dir": {
-				"action": { "QEMU": "" },
-				"response": ""
-			},
-			"default": {
-				"action": { "QEMU": "" },
-				"response": ""
-			}
-		}
-	},
+	...getCommandList(commandList)
 }
 
 export default commands

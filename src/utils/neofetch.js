@@ -2,7 +2,7 @@ const neofetch = `
                                                                         <span class="style4">boidushya</span>@<span class="style4">epicest</span>
                                                                         -----------------
 <span class="style2">██████╗  ██████╗ ██╗██████╗ ██╗   ██╗███████╗██╗  ██╗██╗   ██╗ █████╗</span>	<span class="style4">Name: </span><span class="style1">Boidushya Bhattacharya</span>
-<span class="style2">██╔══██╗██╔═══██╗██║██╔══██╗██║   ██║██╔════╝██║  ██║╚██╗ ██╔╝██╔══██╗</span>	<span class="style4">Education: </span><span class="style1">Sophomore, MUJ (B.Tech. in IT)</span>
+<span class="style2">██╔══██╗██╔═══██╗██║██╔══██╗██║   ██║██╔════╝██║  ██║╚██╗ ██╔╝██╔══██╗</span>	<span class="style4">Education: </span><span class="style1">Sophomore, B.Tech @ MUJ</span>
 <span class="style2">██████╔╝██║   ██║██║██║  ██║██║   ██║███████╗███████║ ╚████╔╝ ███████║</span>	<span class="style4">CGPA: </span><span class="style1">9.85 </span>
 <span class="style2">██╔══██╗██║   ██║██║██║  ██║██║   ██║╚════██║██╔══██║  ╚██╔╝  ██╔══██║</span>	<span class="style4">Interests: </span><span class="style1">Web Dev / CyberSecurity</span>
 <span class="style2">██████╔╝╚██████╔╝██║██████╔╝╚██████╔╝███████║██║  ██║   ██║   ██║  ██║</span>	<span class="style4">Socials: </span><span class="style2"><a target="_blank" href="https://instagram.com/boidushya">Instagram</a> <span class="style1">/</span> <a target="_blank" href="https://www.linkedin.com/in/boidushya/">LinkedIn</a> <span class="style1">/</span> <a target="_blank" href="https://www.github.com/boidushya/">Github</a></span>
