@@ -160,6 +160,22 @@ const InputLine = (props) => {
 								e.preventDefault();
 							}
 							break;
+						case "Home":
+							if(checkPos<=textLength){
+								cursorRef.current.style.transform = `translateX(${-textLength-0.5}ch)`
+							}
+							else{
+								e.preventDefault();
+							}
+							break;
+						case "End":
+							if(checkPos!==1){
+								cursorRef.current.style.transform = `translateX(-0.5ch)`
+							}
+							else{
+								e.preventDefault();
+							}
+							break;
 						case "ArrowRight":
 							if(checkPos!==1 && !ctrlCheck){
 								setTyping(true);

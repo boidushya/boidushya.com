@@ -7,6 +7,8 @@ import { useHistory } from "react-router-dom";
 
 const Wrapper = styled.div`
 	display: flex;
+	align-items:center;
+	grid-template-columns: 1fr 2fr;
 	position:relative;
 	background: ${theme.headerBgStart};
 	background: linear-gradient(180deg, ${theme.headerBgStart} 0%, ${theme.headerBgEnd} 100%);
@@ -20,6 +22,7 @@ const Wrapper = styled.div`
 `
 
 const DotContainer = styled.div`
+	flex:1;
 	display: flex;
 	align-items:center;
 	justify-content:flex-start;
@@ -37,12 +40,8 @@ const StyledDot = styled.div`
 `
 
 const TitleContainer = styled.div`
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform: translate(-50%,-50%);
-	width: 50%;
-    text-align: center;
+	width: 100%;
+	text-align:center;
 `
 
 const Title = styled.p`
@@ -54,6 +53,7 @@ const Title = styled.p`
 	overflow: hidden;
 	white-space:nowrap;
 	text-overflow: ellipsis;
+	margin: 0 6rem 0 1rem;
 `
 
 const Icon = styled.img`
