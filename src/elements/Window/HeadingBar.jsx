@@ -30,6 +30,7 @@ const DotContainer = styled.div`
 `
 
 const StyledDot = styled.div`
+	position:relative;
 	background: ${props=>props.variant&&props.variant};
     border: 1px solid ${props=>props.variant&&props.variant.darken(0.175)};
     height: 1rem;
@@ -37,6 +38,23 @@ const StyledDot = styled.div`
     border-radius:50%;
 	margin: 0 0 0 0.75rem;
 	cursor: pointer;
+	&:after{
+		content:"";
+		height: 0.3rem;
+		width: 0.3rem;
+		background: transparent;
+		border-radius:50%;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+		transition: background 0.1s ease;
+	}
+	&:hover{
+		&:after{
+			background: ${props=>props.variant&&props.variant.darken(0.4)};
+		}
+	}
 `
 
 const TitleContainer = styled.div`
@@ -65,7 +83,7 @@ const Icon = styled.img`
 const Dot = (props) => {
 	let variant = theme[`dot${props.variant}`];
 	return (
-		<StyledDot variant={variant}/>
+		<StyledDot onClick={props.onClick} variant={variant}/>
 	)
 }
 
@@ -73,10 +91,10 @@ const HeadingBar = (props) => {
 	let history = useHistory();
 	return (
 		<Wrapper className={props.altClassName}>
-			<DotContainer  onClick={() =>{ history.goBack()}}>
-				<Dot variant="1"/>
-				<Dot variant="2"/>
-				<Dot variant="3"/>
+			<DotContainer >
+				<Dot variant="1" onClick={() =>{ history.goBack()}}/>
+				<Dot variant="2" />
+				<Dot variant="3" onClick={() =>{ history.goForward()}}/>
 			</DotContainer>
 			<TitleContainer>
 				<Title>

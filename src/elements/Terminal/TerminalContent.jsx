@@ -6,6 +6,7 @@ import theme from "../../styles/theme";
 import getResponse from "../../utils/responseFetcher";
 import { sanitize } from 'dompurify';
 import SimpleBarReact from "simplebar-react";
+import BodyContent from "../Window/BodyContent";
 import "simplebar/src/simplebar.css";
 
 const Wrapper = styled.div`
@@ -50,7 +51,7 @@ const Input = styled.input`
 	outline: none;
 	caret-color: transparent;
 	width:0;
-	max-width: 100%;
+	max-width: 100ch;
 	&::selection{
 		color:${theme.bodyBg};
 		background:${theme.bodyBg.negate()};
@@ -289,16 +290,18 @@ const TerminalContent = () => {
 		setActive(true)
 	}, [active])
 	return (
-		<Wrapper>
-			{Array.from(Array(child).keys()).map(i=>(
-				<Command
-					setChild={setChild}
-					setActive={setActive}
-					child={child}
-					key={i===0?(active&&i):i}
-				/>
-			))}
-		</Wrapper>
+		<BodyContent>
+			<Wrapper>
+				{Array.from(Array(child).keys()).map(i=>(
+					<Command
+						setChild={setChild}
+						setActive={setActive}
+						child={child}
+						key={i===0?(active&&i):i}
+					/>
+				))}
+			</Wrapper>
+		</BodyContent>
 	)
 }
 

@@ -1,11 +1,11 @@
 import React from "react";
 import Default from "./Default";
-import BodyContent from "../elements/Window/BodyContent";
+import TerminalContent from "../elements/Terminal/TerminalContent";
 
 const VSCode = () => {
 	return (
 		<Default contextMenu={true} heading="boidushya@epicest: ~/Documents/portfolio — zsh — 100×35">
-			<BodyContent/>
+			<TerminalContent/>
 		</Default>
 	)
 }

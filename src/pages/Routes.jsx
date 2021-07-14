@@ -12,7 +12,7 @@ import VSCode from "../components/VSCode";
 import Linux from "../components/Linux";
 import Resume from "../components/Resume";
 
-const Homepage = () => {
+const Routes = () => {
 	return (
 		<Router>
 			<Switch>
@@ -46,4 +46,4 @@ const Homepage = () => {
 	)
 }
 
-export default Homepage
+export default Routes

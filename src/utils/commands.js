@@ -6,10 +6,27 @@ const compileResponseHTML = (styleMap) => {
 	}).join("  ")
 }
 const compileCommandHTML = (commandList) => {
-	let defArgs = ["ls", "cd", "clear"]
-	return [...defArgs, ...commandList.map(item => {
-		return item.name[0];
+	let defArgs = [
+		{
+			"name":"ls",
+			"description":""
+		},
+		{
+			"name":"cd",
+			"description":""
+		},
+		{
+			"name":"clear",
+			"description":""
+		}
+	]
+	let argList = [...defArgs, ...commandList.map(item => {
+		return {
+			name: item.name[0],
+			description: item.description
+		}
 	})]
+	return argList
 }
 
 const commandList = [

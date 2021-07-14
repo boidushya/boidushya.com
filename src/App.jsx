@@ -1,16 +1,14 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-// eslint-disable-next-line
-import styled from "styled-components";
 import colors from "./styles/colors";
-import Homepage from "./pages/Homepage";
+import Routes from "./pages/Routes";
 import DataProvider from "./contexts/Data/DataProvider";
 
 const App = () => {
 	return (
 		<ThemeProvider theme={colors}>
 			<DataProvider>
-				<Homepage/>
+				<Routes/>
 			</DataProvider>
 		</ThemeProvider>
 	)

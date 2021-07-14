@@ -1,18 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import theme from "../../styles/theme";
-
-const Wrapper = styled.div`
-	display:flex;
-	flex:1;
-	max-width:100%;
-	min-height: 32rem;
-	height:100%;
-	background: ${theme.bodyBg};
-	border-radius: 0 0 0.3rem 0.3rem;
-	opacity: 0.85;
-	overflow:hidden;
-`
+import BodyContent from "../Window/BodyContent";
 
 const Iframe = styled.iframe`
 	width: 100%;
@@ -20,9 +8,9 @@ const Iframe = styled.iframe`
 `
 const Zone = () => {
 	return (
-		<Wrapper>
+		<BodyContent>
 			<Iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0" frameborder="0" allow="accelerometer; autoplay;"></Iframe>
-		</Wrapper>
+		</BodyContent>
 	)
 }
 
