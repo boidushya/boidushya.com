@@ -25,6 +25,7 @@ const Container = styled.div`
 	max-height: 90%;
 	max-width: 80%;
 	backdrop-filter: blur(1rem);
+	background: ${theme.bodyBgWithOpacity};
 	${props=>props.height&&`height: ${props.height}`}
 `
 

@@ -9,6 +9,7 @@ const VSCode = () => {
 			<Suspense fallback={
 				<Loader/>
 			}>
+				{/* <Loader/> */}
 				<TerminalContent/>
 			</Suspense>
 		</Default>

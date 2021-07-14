@@ -48,7 +48,7 @@ Type <span class="style2">'help'</span> to see this list.\n\n`
 		let temp = `<span class="style2">${item.name}</span>${spaceList[idx]}${item.description}\n`
 		response += temp
 	})
-	return response
+	return `${response}\nAnd more "hidden" commands...`
 }
 
 let commandList = [

@@ -9,7 +9,6 @@ const Wrapper = styled.div`
 	max-width:100%;
 	min-height: 32rem;
 	height:100%;
-	background: ${theme.bodyBgWithOpacity};
 	border-radius: 0 0 0.3rem 0.3rem;
 	border: 1px solid ${theme.bodyBorder};
 `
