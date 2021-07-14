@@ -1,11 +1,16 @@
-import React from "react";
-import Default from "./Default";
-import TerminalContent from "../elements/Terminal/TerminalContent";
+import React, { Suspense, lazy } from "react";
+import Default from "@components/Default";
+import Loader from "@elements/Loader/Loader";
+const TerminalContent = lazy(() => import("@elements/Terminal/TerminalContent"));
 
 const VSCode = () => {
 	return (
 		<Default contextMenu={true} heading="boidushya@epicest: ~/Documents/portfolio — zsh — 100×35">
-			<TerminalContent/>
+			<Suspense fallback={
+				<Loader/>
+			}>
+				<TerminalContent/>
+			</Suspense>
 		</Default>
 	)
 }

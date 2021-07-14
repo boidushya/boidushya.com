@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import commands from "./commands";
+import commands from "@utils/commands";
 import styled from "styled-components";
-import theme from "../styles/theme";
+import theme from "@styles/theme";
 import { sanitize } from "dompurify";
 
 // eslint-disable-next-line

@@ -1,8 +1,8 @@
 import React from "react";
 // eslint-disable-next-line
 import styled from "styled-components";
-import theme from "../../styles/theme";
-import icon from "../../static/home.png";
+import theme from "@styles/theme";
+import icon from "@static/home.png";
 import { useHistory } from "react-router-dom";
 
 const Wrapper = styled.div`

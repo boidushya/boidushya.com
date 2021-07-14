@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import theme from "../../styles/theme";
-import "../../styles/loader.scss";
+import theme from "@styles/theme";
+import "@styles/loader.scss";
 
 const LoadingContainer = styled.div`
 	width: 100%;

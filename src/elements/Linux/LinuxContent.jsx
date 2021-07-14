@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { V86Starter } from "v86";
 import bios from "v86/bios/bochs-bios.bin";
 import vgaBios from "v86/bios/bochs-vgabios.bin";
-import theme from "../../styles/theme";
-import BodyContent from "../Window/BodyContent";
+import theme from "@styles/theme";
+import BodyContent from "@elements/Window/BodyContent";
 
 const Container = styled.div`
 	white-space: pre;

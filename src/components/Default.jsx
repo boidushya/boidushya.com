@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import HeadingBar from "../elements/Window/HeadingBar";
+import HeadingBar from "@elements/Window/HeadingBar";
 import Draggable from 'react-draggable';
-import bg from "../static/bg5small.jpg";
-import theme from "../styles/theme";
+import bg from "@static/bg5small.jpg";
+import theme from "@styles/theme";
 
 const Wrapper = styled.div`
 	display: grid;

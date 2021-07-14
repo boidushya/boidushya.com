@@ -1,4 +1,4 @@
-import neofetch from "./neofetch";
+import neofetch from "@utils/neofetch";
 
 const compileResponseHTML = (styleMap) => {
 	return styleMap.map((item)=>{

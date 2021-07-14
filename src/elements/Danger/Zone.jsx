@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BodyContent from "../Window/BodyContent";
+import BodyContent from "@elements/Window/BodyContent";
 
 const Iframe = styled.iframe`
 	width: 100%;
