@@ -41,7 +41,7 @@ const TitleContainer = styled.div`
 	top:50%;
 	left:50%;
 	transform: translate(-50%,-50%);
-	width: 60%;
+	width: 50%;
     text-align: center;
 `
 
@@ -51,6 +51,9 @@ const Title = styled.p`
 	letter-spacing: -0.25px;
 	font-size: 1rem;
 	font-weight: 600;
+	overflow: hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis;
 `
 
 const Icon = styled.img`
