@@ -22,5 +22,6 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "permissions": ["https://boidushya.com"]
+  "permissions": ["https://boidushya.com"],
+  "host_permissions": ["https://boidushya.com/*"]
 }
