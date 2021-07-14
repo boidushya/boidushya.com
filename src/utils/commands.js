@@ -5,19 +5,33 @@ const compileResponseHTML = (styleMap) => {
 		return `<span class="${item.folder?`style3`:`${item.executable?`style2`:`style1`}`}">${item.link?`<a target="_blank" href="${item.link}">${item.name}</a>`:`${item.name}`}</span>`
 	}).join("  ")
 }
+
+const getSpaces = (commandList) => {
+	let defaultSpaces = "\t"
+	let lengthList = commandList.map(item => {
+		return item.name.length
+	})
+	// console.log(commandList)
+	let max = Math.max(...lengthList)
+	let what = commandList.map(item => {
+		return Array(max - item.name.length + 1).join(" ") + defaultSpaces
+	})
+	return what
+}
+
 const compileCommandHTML = (commandList) => {
 	let defArgs = [
 		{
-			"name":"ls",
-			"description":""
+			"name": "ls",
+			"description": "lists directory content"
 		},
 		{
-			"name":"cd",
-			"description":""
+			"name": "cd",
+			"description": "changes your current working directory"
 		},
 		{
-			"name":"clear",
-			"description":""
+			"name": "clear",
+			"description": "clears the terminal screen"
 		}
 	]
 	let argList = [...defArgs, ...commandList.map(item => {
@@ -26,10 +40,18 @@ const compileCommandHTML = (commandList) => {
 			description: item.description
 		}
 	})]
-	return argList
+	let spaceList = getSpaces(argList)
+	let response = `GNU bash, version 5.0.17(1)-release (x86_64-pc-linux-gnu)
+These shell commands are defined internally.
+Type <span class="style2">'help'</span> to see this list.\n\n`
+	argList.forEach((item, idx) => {
+		let temp = `<span class="style2">${item.name}</span>${spaceList[idx]}${item.description}\n`
+		response += temp
+	})
+	return response
 }
 
-const commandList = [
+let commandList = [
 	{
 		"name":["resume","./resume"],
 		"action": { "RESUME":""},
@@ -42,7 +64,7 @@ const commandList = [
 		"action": false,
 		"response": `<pre>${neofetch}</pre>`,
 		"subPathStrict": [false],
-		"description": "Neofetch displays information about your operating system, software and hardware in an aesthetic and visually pleasing way."
+		"description": "Displays information about me in an aesthetic and visually pleasing way."
 	},
 	{
 		"name": ["code"],
@@ -56,7 +78,7 @@ const commandList = [
 		"action": true,
 		"response": "",
 		"subPathStrict": [false],
-		"description": "¯\\_(ツ)_/¯"
+		"description": "<span class=\"style7\">¯\\_(ツ)_/¯</span>"
 	},
 	{
 		"name": ["qemu"],
@@ -64,15 +86,21 @@ const commandList = [
 		"response": "",
 		"subPathStrict": [false],
 		"description": "A linux emulator that runs right on your browser (I had to flex I'm sorry)"
-	}
+	},
+	{
+		"name": ["help"],
+		"action": false,
+		"response": "",
+		"subPathStrict": [true, "%cmd%"],
+		"description": "Displays this message "
+	},
 ]
 
-commandList.push({
-	"name": ["help"],
-	"action": false,
-	"response": `<pre>${JSON.stringify(compileCommandHTML(commandList))}</pre>`,
-	"subPathStrict": [true,"%cmd%"],
-	"description":"Displays this message "
+commandList = commandList.map(item=>{
+	if(item.name[0] === "help"){
+		item.response = `<pre>${compileCommandHTML(commandList)}</pre>`
+	}
+	return item
 })
 
 
@@ -139,6 +167,10 @@ const getArgListCd = (fileList) => {
 		"default": {
 			"action": null,
 			"response": "cd: cannot access %arg%: Permission Denied"
+		},
+		"~": {
+			"action": null,
+			"response": ""
 		}
 	}
 	let argList = {}

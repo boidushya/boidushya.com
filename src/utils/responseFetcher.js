@@ -24,6 +24,24 @@ const Wrapper = styled.span`
 	.style4{
 		color: ${theme.bodyFont3};
 	}
+	.style5{
+		color: ${theme.bodyFont4};
+	}
+	.style6{
+		color: ${theme.bodyFont5};
+	}
+	.style7{
+		background: ${theme.easterEgg};
+		background-size: 1800% 1800%;
+		animation: rainbow 15s ease infinite;
+
+		@keyframes rainbow {
+			0%{background-position:0% 82%}
+			50%{background-position:100% 19%}
+			100%{background-position:0% 82%}
+		}
+		color: ${theme.bodyFont4};
+	}
 `
 
 const getErrorCommand = (command) => {
