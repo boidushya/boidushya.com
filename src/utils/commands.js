@@ -47,7 +47,7 @@ const compileCommandHTML = (commandList) => {
 		}
 	})]
 	let spaceList = getSpaces(argList)
-	let response = `ZSH version 5.8.0 (x86_64-macOS-gnu)
+	let response = `ZSH version 5.8.0 (x86_64-apple-darwin20.0)
 These shell commands are defined internally.
 Type <span class="style2">'help'</span> to see this list.\n\n`
 	argList.forEach((item, idx) => {
