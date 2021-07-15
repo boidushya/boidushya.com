@@ -1,4 +1,6 @@
 import neofetch from "@utils/neofetch";
+//eslint-disable-next-line
+import getGitLog from "@utils/gitLog";
 
 const compileResponseHTML = (styleMap) => {
 	return styleMap.map((item)=>{
@@ -27,7 +29,7 @@ const compileCommandHTML = (commandList) => {
 		},
 		{
 			"name": "cd",
-			"description": "changes your current working directory"
+			"description": "changes the current working directory"
 		},
 		{
 			"name": "clear",
@@ -35,13 +37,17 @@ const compileCommandHTML = (commandList) => {
 		}
 	]
 	let argList = [...defArgs, ...commandList.map(item => {
+		let extra = " "
+		if(item.subPathStrict[0]){
+			extra += item.subPathStrict[1].name
+		}
 		return {
-			name: item.name[0],
+			name: item.name[0]+extra,
 			description: item.description
 		}
 	})]
 	let spaceList = getSpaces(argList)
-	let response = `GNU bash, version 5.0.17(1)-release (x86_64-pc-linux-gnu)
+	let response = `ZSH version 5.8.0 (x86_64-macOS-gnu)
 These shell commands are defined internally.
 Type <span class="style2">'help'</span> to see this list.\n\n`
 	argList.forEach((item, idx) => {
@@ -57,21 +63,21 @@ let commandList = [
 		"action": { "RESUME":""},
 		"response":"",
 		"subPathStrict":[false],
-		"description":"View my resume"
+		"description":"view my resume"
 	},
 	{
 		"name": ["neofetch"],
 		"action": false,
 		"response": `<pre>${neofetch}</pre>`,
 		"subPathStrict": [false],
-		"description": "Displays information about me in an aesthetic and visually pleasing way."
+		"description": "displays information about me in an aesthetic and visually pleasing way."
 	},
 	{
 		"name": ["code"],
 		"action": true,
 		"response": "",
-		"subPathStrict": [true, ["."]],
-		"description": "Opens a VS code window for this website's source code"
+		"subPathStrict": [true, {"name":".","response":""}],
+		"description": "opens a VS code window for this website's source code"
 	},
 	{
 		"name": ["danger"],
@@ -81,18 +87,25 @@ let commandList = [
 		"description": "<span class=\"style7\">¯\\_(ツ)_/¯</span>"
 	},
 	{
+		"name": ["git"],
+		"action": false,
+		"response": "Invalid command <span class=\"style2\">'git'</span>\nDid you mean <span class=\"style2\">'git log'</span>?",
+		"subPathStrict": [true, { "name": "log", "response": ""}],
+		"description": "lists my github projects"
+	},
+	{
 		"name": ["qemu"],
 		"action": true,
 		"response": "",
 		"subPathStrict": [false],
-		"description": "A linux emulator that runs right on your browser (I had to flex I'm sorry)"
+		"description": "a linux emulator that runs right on your browser (I had to flex I'm sorry)"
 	},
 	{
 		"name": ["help"],
 		"action": false,
 		"response": "",
-		"subPathStrict": [true, "%cmd%"],
-		"description": "Displays this message "
+		"subPathStrict": [false],
+		"description": "displays this message "
 	},
 ]
 
@@ -127,32 +140,35 @@ const fileList = [
 
 const getCommandList = (commandList) => {
 	let finalCommandList = {}
+
 	commandList.forEach(item => {
 		//eslint-disable-next-line
 		let commandBuilder = {}
 		item.name.forEach(elem => {
-			let action = item.action ? { [item.name[0].toUpperCase()]: "" } : null,
-				commandBuilder = {
-					[elem]: {
-						"validArgs": {
-							"_dir": {
-								action: action,
-								response: item.response,
-							},
-							"default": {
-								action: action,
-								response: item.response,
-							}
+			let action = item.action ? { [item.name[0].toUpperCase()]: "" } : null
+			let resp = item.response;
+			commandBuilder = {
+				[elem]: {
+					"validArgs": {
+						"_dir": {
+							action: action,
+							response: resp,
+						},
+						"default": {
+							action: action,
+							response: resp,
 						}
 					}
 				}
+			}
 			if (item.subPathStrict[0]) {
-				commandBuilder[elem].validArgs[item.subPathStrict[1]] = {
+				// console.log(item.subPathStrict[1].response)
+				commandBuilder[elem].validArgs[item.subPathStrict[1].name] = {
 					action: action,
-					response: item.response,
+					response: item.subPathStrict[1].response
 				}
 			}
-			finalCommandList = { ...finalCommandList, ...commandBuilder }
+			finalCommandList = { ...commandBuilder, ...finalCommandList }
 		})
 	})
 	return finalCommandList
