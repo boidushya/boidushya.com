@@ -6,7 +6,7 @@
 - [x] qemu
 - [x] command system for executable files needs to be dynamic
 - [x] finish help command
-- [ ] git log
+- [x] git log
 - [ ] uname
 - [ ] whoami
 - [ ] ps

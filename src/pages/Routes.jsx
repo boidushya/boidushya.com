@@ -11,6 +11,7 @@ import Danger from "@components/Danger";
 import VSCode from "@components/VSCode";
 import Linux from "@components/Linux";
 import Resume from "@components/Resume";
+import Git from "@components/Git";
 
 const Routes = () => {
 	return (
@@ -40,6 +41,11 @@ const Routes = () => {
 					path="/resume"
 					exact
 					component={Resume}
+				/>
+				<Route
+					path="/git"
+					exact
+					component={Git}
 				/>
 			</Switch>
 		</Router>

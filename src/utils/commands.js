@@ -1,6 +1,5 @@
 import neofetch from "@utils/neofetch";
 //eslint-disable-next-line
-import getGitLog from "@utils/gitLog";
 
 const compileResponseHTML = (styleMap) => {
 	return styleMap.map((item)=>{
@@ -88,9 +87,9 @@ let commandList = [
 	},
 	{
 		"name": ["git"],
-		"action": false,
-		"response": "Invalid command <span class=\"style2\">'git'</span>\nDid you mean <span class=\"style2\">'git log'</span>?",
-		"subPathStrict": [true, { "name": "log", "response": ""}],
+		"action": true,
+		"response": "",
+		"subPathStrict": [true,{"name":"log","response":""}],
 		"description": "lists my github projects"
 	},
 	{
@@ -109,13 +108,12 @@ let commandList = [
 	},
 ]
 
-commandList = commandList.map(item=>{
-	if(item.name[0] === "help"){
+commandList = commandList.map(item => {
+	if (item.name[0] === "help") {
 		item.response = `<pre>${compileCommandHTML(commandList)}</pre>`
 	}
-	return item
+	return item;
 })
-
 
 const fileList = [
 	{
@@ -140,7 +138,6 @@ const fileList = [
 
 const getCommandList = (commandList) => {
 	let finalCommandList = {}
-
 	commandList.forEach(item => {
 		//eslint-disable-next-line
 		let commandBuilder = {}
@@ -162,7 +159,6 @@ const getCommandList = (commandList) => {
 				}
 			}
 			if (item.subPathStrict[0]) {
-				// console.log(item.subPathStrict[1].response)
 				commandBuilder[elem].validArgs[item.subPathStrict[1].name] = {
 					action: action,
 					response: item.subPathStrict[1].response
@@ -171,6 +167,7 @@ const getCommandList = (commandList) => {
 			finalCommandList = { ...commandBuilder, ...finalCommandList }
 		})
 	})
+	// console.log(finalCommandList)
 	return finalCommandList
 }
 
@@ -224,5 +221,6 @@ const commands = {
 	},
 	...getCommandList(commandList)
 }
+
 
 export default commands

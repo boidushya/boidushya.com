@@ -71,6 +71,9 @@ const Action = (props) => {
 				case "RESUME":
 					document.location.href = "/resume"
 					break;
+				case "GIT":
+					document.location.href = "/git"
+					break;
 				default:
 					break;
 			}
