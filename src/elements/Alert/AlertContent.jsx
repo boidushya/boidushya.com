@@ -23,6 +23,8 @@ const Container = styled.div`
 	right: -30rem;
 	cursor: default;
 	transition: right 0.7s cubic-bezier(.64,-0.5,.16,1);
+	user-select: none;
+	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
 	z-index:5;
 	.hidden{
 		opacity:0;
@@ -48,6 +50,8 @@ const Close = styled.div`
 	background:${theme.btnBg};
 	box-shadow: rgba(14, 30, 37, 0.1) 0px 2px 4px 0px, rgba(14, 30, 37, 0.2) 0px 0px 4px 0px, inset rgba(207, 229, 255, 0.2) 1px 1px 5px 0px;
 	cursor:pointer;
+	user-select: none;
+	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
 	&:after{
 		content:"\\00d7";
 		height: 100%;
