@@ -101,7 +101,7 @@ let commandList = [
 	},
 	{
 		"name": ["help"],
-		"action": false,
+		"action": true,
 		"response": "",
 		"subPathStrict": [false],
 		"description": "displays this message "

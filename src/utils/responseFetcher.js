@@ -74,6 +74,9 @@ const Action = (props) => {
 				case "GIT":
 					document.location.href = "/git"
 					break;
+				case "HELP":
+					localStorage.setItem("hideHelp",true)
+					break;
 				default:
 					break;
 			}
