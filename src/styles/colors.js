@@ -18,6 +18,8 @@ const colors = {
 	windowShadow:"rgba(0, 0, 0, 0.2)",
 	labelColor:"rgb(255, 95, 88)",
 	scrollbarThumb:"rgb(85, 85, 85)",
+	containerBg: "rgba(240, 240, 255,0.9)",
+	btnBg: "rgba(240, 240, 255,1)",
 };
 
 export default colors;

@@ -4,6 +4,7 @@ import HeadingBar from "@elements/Window/HeadingBar";
 import Draggable from 'react-draggable';
 import bg from "@static/bg5small.jpg";
 import theme from "@styles/theme";
+import AlertContent from "@elements/Alert/AlertContent";
 
 const Wrapper = styled.div`
 	display: grid;
@@ -37,28 +38,31 @@ const Default = (props) => {
 	}
 	const BOUND = 512
 	return (
-		<Wrapper>
-			<Draggable
-				bounds={{
-					top: -128,
-					left: -BOUND,
-					right: BOUND,
-					bottom: BOUND
-				}}
-				handle=".heading-bar"
-			>
-				<Container
-					height={props.height}
-					resizable={resizable}
-					onContextMenu={(e)=>{
-						!props.contextMenu&&e.preventDefault()
+		<>
+			<AlertContent/>
+			<Wrapper>
+				<Draggable
+					bounds={{
+						top: -128,
+						left: -BOUND,
+						right: BOUND,
+						bottom: BOUND
 					}}
+					handle=".heading-bar"
 				>
-					<HeadingBar altClassName="heading-bar" heading={props.heading}/>
-					{props.children}
-				</Container>
-			</Draggable>
-		</Wrapper>
+					<Container
+						height={props.height}
+						resizable={resizable}
+						onContextMenu={(e)=>{
+							!props.contextMenu&&e.preventDefault()
+						}}
+					>
+						<HeadingBar altClassName="heading-bar" heading={props.heading}/>
+						{props.children}
+					</Container>
+				</Draggable>
+			</Wrapper>
+		</>
 	)
 }
 
