@@ -16,6 +16,11 @@ const DataProvider = (props) => {
 			type: "PATH",
 			payload: location,
 		});
+	const setAlertHidden = (currentState) =>
+		dispatch({
+			type: "ALERT",
+			payload: currentState,
+		});
 
 	return (
 		<DataContext.Provider
@@ -23,7 +28,9 @@ const DataProvider = (props) => {
 				commands: state.commands,
 				setCommand,
 				path: state.path,
-				setPath
+				setPath,
+				alertHidden: state.alert,
+				setAlertHidden
 			}}
 		>
 			{props.children}

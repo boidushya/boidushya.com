@@ -1,7 +1,8 @@
 import theme from "@styles/theme";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import things from "@static/things.png";
+import DataContext from "@contexts/Data/DataContext";
 
 const Wrapper = styled.div`
 	position:absolute;
@@ -100,7 +101,8 @@ const ContentBody = styled.div`
 `
 
 const AlertContent = () => {
-	const [time, setTime] = useState("now")
+	const [time, setTime] = useState("now");
+	const { alertHidden, setAlertHidden } = useContext(DataContext)
 	const [source, setSource] = useState(null)
 	const closeRef = useRef()
 	const containerRef = useRef()
@@ -110,8 +112,14 @@ const AlertContent = () => {
 		img.onload = () => setSource(things)
 	}, [])
 	useEffect(() => {
+		if(alertHidden){
+			containerRef.current.classList.remove("showAlert");
+			localStorage.setItem("hideHelp",true)
+		}
+	}, [alertHidden])
+	useEffect(() => {
 		let help = localStorage.getItem("hideHelp")
-		if(!help && source){
+		if(!help && source && !alertHidden){
 			containerRef.current.classList.add("showAlert");
 		}
 	//eslint-disable-next-line
@@ -150,8 +158,8 @@ const AlertContent = () => {
 				}}
 			>
 				<Close className="hidden" ref={closeRef} onClick={()=>{
-					containerRef.current.classList.remove("showAlert");
-					localStorage.setItem("hideHelp",true)
+
+					setAlertHidden(true);
 				}}/>
 				<Content>
 					<Header>

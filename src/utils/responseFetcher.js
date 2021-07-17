@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import commands from "@utils/commands";
 import styled from "styled-components";
 import theme from "@styles/theme";
 import { sanitize } from "dompurify";
+import DataContext from '@contexts/Data/DataContext';
 
 // eslint-disable-next-line
 const Wrapper = styled.span`
@@ -53,6 +54,7 @@ const getErrorCommand = (command) => {
 }
 
 const Action = (props) => {
+	const { setAlertHidden } = useContext(DataContext)
 	useEffect(() => {
 		if(props.action){
 			switch(Object.keys(props.action)[0]){
@@ -75,7 +77,7 @@ const Action = (props) => {
 					document.location.href = "/git"
 					break;
 				case "HELP":
-					localStorage.setItem("hideHelp",true)
+					setAlertHidden(true);
 					break;
 				default:
 					break;

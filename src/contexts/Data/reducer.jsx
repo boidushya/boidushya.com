@@ -12,6 +12,11 @@ export const reducer = (state, action) => {
 				...state,
 				path: action.payload,
 			};
+		case "ALERT":
+			return {
+				...state,
+				alert: action.payload,
+			};
 		default:
 			throw new Error(`Unhandled action type: ${action.type}`);
 	}

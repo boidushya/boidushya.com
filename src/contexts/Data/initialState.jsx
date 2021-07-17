@@ -1,4 +1,5 @@
 export const initialState = {
 	commands:[],
-	path:"root@boidushya:~&nbsp;"
+	path:"root@boidushya:~&nbsp;",
+	alert:false,
 };
