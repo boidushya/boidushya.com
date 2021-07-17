@@ -122,7 +122,6 @@ const AlertContent = () => {
 		const timer = setInterval(() => {
 			let timeSpentSec = Math.floor((new Date()-startTime)/1000)
 			let timeSpentMin = Math.floor(timeSpentSec/60)
-			console.log(timeSpentSec,timeSpentMin)
 			if(timeSpentMin>=1){
 				setTime(`${timeSpentMin}m ago`);
 			}
