@@ -1,6 +1,7 @@
 import theme from "@styles/theme";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import things from "@static/things.png";
 
 const Wrapper = styled.div`
 	position:absolute;
@@ -24,7 +25,7 @@ const Container = styled.div`
 	cursor: default;
 	transition: right 0.7s cubic-bezier(.64,-0.5,.16,1);
 	user-select: none;
-	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 	z-index:5;
 	.hidden{
 		opacity:0;
@@ -51,7 +52,7 @@ const Close = styled.div`
 	box-shadow: rgba(14, 30, 37, 0.1) 0px 2px 4px 0px, rgba(14, 30, 37, 0.2) 0px 0px 4px 0px, inset rgba(207, 229, 255, 0.2) 1px 1px 5px 0px;
 	cursor:pointer;
 	user-select: none;
-	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 	&:after{
 		content:"\\00d7";
 		height: 100%;
@@ -79,7 +80,7 @@ const Header = styled.div`
 const Icon = styled.div`
 	height: 1.5rem;
 	width: 1.5rem;
-	background:url("https://culturedcode.com/things/2017-03-25/images/appicon-mac.png") no-repeat;
+	background:url("${props=>props.image&&props.image}") no-repeat;
 	background-size: contain;
 `
 
@@ -101,14 +102,21 @@ const ContentBody = styled.div`
 
 const AlertContent = () => {
 	const [time, setTime] = useState("now")
+	const [source, setSource] = useState(null)
 	const closeRef = useRef()
 	const containerRef = useRef()
 	useEffect(() => {
+		const img = new Image()
+		img.src = things
+		img.onload = () => setSource(things)
+	}, [])
+	useEffect(() => {
 		let help = localStorage.getItem("hideHelp")
-		if(!help){
+		if(!help && source){
 			containerRef.current.classList.add("showAlert");
 		}
-	},[])
+	//eslint-disable-next-line
+	},[source])
 	useEffect(() => {
 		const startTime = new Date()
 		const timer = setInterval(() => {
@@ -140,7 +148,7 @@ const AlertContent = () => {
 				}}/>
 				<Content>
 					<Header>
-						<Icon/>
+						<Icon image={source}/>
 						<Title>
 							THINGS
 						</Title>
