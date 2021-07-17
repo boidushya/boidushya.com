@@ -91,7 +91,7 @@ const Label = styled.label`
 
 const InputLine = (props) => {
 	const [val, setVal] = useState("");
-	const { commands, setCommand, path } = useContext(DataContext);
+	const { commands, setCommand, path, alertHidden } = useContext(DataContext);
 	const [ counter, setCounter ] = useState(commands.length);
 	const [typing, setTyping] = useState(false);
 	// eslint-disable-next-line
@@ -110,6 +110,24 @@ const InputLine = (props) => {
 		}
 	//eslint-disable-next-line
 	}, [])
+
+	useEffect(() => {
+		if(!alertHidden){
+			const startTime = new Date()
+			const timer = setInterval(() => {
+				let timeSpentSec = Math.floor((new Date()-startTime)/1000)
+				let timeSpentMin = Math.floor(timeSpentSec/60)
+				if(timeSpentMin === 5 && !disabled){
+					setVal("help")
+					inputRef.current.style.width = inputRef.current.value.length + "ch";
+				}
+			},1000);
+			return () => {
+				clearInterval(timer);
+			}
+		}
+	//eslint-disable-next-line
+	}, [disabled,alertHidden]);
 
 	useEffect(() => {
 		const timeoutId = setTimeout(() =>
