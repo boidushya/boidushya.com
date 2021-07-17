@@ -31,7 +31,6 @@ const Container = styled.div`
 		opacity:0;
 		transition: opacity 0.15s;
 	}
-
 	.shown{
 		opacity:1;
 		transition: opacity 0.15s;
@@ -119,14 +118,23 @@ const AlertContent = () => {
 	},[source])
 	useEffect(() => {
 		const startTime = new Date()
+		let prevTime = 0
+		let shakeInterval = 1
 		const timer = setInterval(() => {
 			let timeSpent = Math.floor((new Date()-startTime)/(60*1000))
 			if(timeSpent>=1){
 				setTime(`${timeSpent}m ago`);
 			}
+			if(timeSpent!==prevTime && timeSpent%shakeInterval===0){
+				containerRef.current.classList.add("shake");
+				prevTime = timeSpent
+				setTimeout(() => {
+					containerRef.current.classList.remove("shake");
+				}, 5000);
+			}
 		},1000);
 		return () => {
-		clearInterval(timer);
+			clearInterval(timer);
 		}
 	}, []);
 	return (
