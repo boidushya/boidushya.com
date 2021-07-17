@@ -36,7 +36,7 @@ const Container = styled.div`
 		transition: opacity 0.15s;
 	}
 	@media (max-width:1224px){
-		width: 90%;
+		width: 91%;
 	}
 `
 
@@ -118,16 +118,16 @@ const AlertContent = () => {
 	},[source])
 	useEffect(() => {
 		const startTime = new Date()
-		let prevTime = 0
-		let shakeInterval = 1
+		let shakeInterval = 15
 		const timer = setInterval(() => {
-			let timeSpent = Math.floor((new Date()-startTime)/(60*1000))
-			if(timeSpent>=1){
-				setTime(`${timeSpent}m ago`);
+			let timeSpentSec = Math.floor((new Date()-startTime)/1000)
+			let timeSpentMin = Math.floor(timeSpentSec/60)
+			console.log(timeSpentSec,timeSpentMin)
+			if(timeSpentMin>=1){
+				setTime(`${timeSpentMin}m ago`);
 			}
-			if(timeSpent!==prevTime && timeSpent%shakeInterval===0){
+			if(timeSpentSec%shakeInterval===0){
 				containerRef.current.classList.add("shake");
-				prevTime = timeSpent
 				setTimeout(() => {
 					containerRef.current.classList.remove("shake");
 				}, 5000);
