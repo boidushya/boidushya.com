@@ -9,12 +9,18 @@ import BodyContent from "@elements/Window/BodyContent";
 import SimpleBarReact from "simplebar-react";
 import "simplebar/src/simplebar.css";
 
-const Wrapper = styled.div`
+const Wrapper = styled(SimpleBarReact)`
 	font-family: "Hack", monospace;
 	color:${theme.bodyFont1};
+	.simplebar-scrollbar:before{
+		border-radius: 10px;
+		background-color: ${theme.scrollbarThumb};
+	}
 	padding: 0.2rem 0.4rem 0 0.4rem;
 	line-height: 1.5;
 	width: 100%;
+	max-height: 80vh;
+	overflow-x: hidden;
 `
 
 //eslint-disable-next-line

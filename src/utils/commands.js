@@ -106,6 +106,20 @@ let commandList = [
 		"subPathStrict": [false],
 		"description": "displays this message "
 	},
+	{
+		"name": ["uname"],
+		"action": true,
+		"response": "Darwin MacBook-Pro.local 20.1.0 Darwin Kernel Version 20.1.0: Sun Jul 18 10:32:00 PDT 2021; root:xnu-7195.50.7~2/RELEASE_ARM64_T8101 arm64",
+		"subPathStrict": [false],
+		"description": "prints the Darwin OS Kernel version / release / machine name. "
+	},
+	{
+		"name": ["whoami"],
+		"action": true,
+		"response": "Boidushya Bhattacharyay",
+		"subPathStrict": [false],
+		"description": "prints the full name of the current administrator when invoked"
+	}
 ]
 
 commandList = commandList.map(item => {
