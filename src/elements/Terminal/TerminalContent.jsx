@@ -271,11 +271,8 @@ const InputLine = (props) => {
 }
 
 const Response = (props) => {
-	const responseRef = useRef()
 	return (
-		<Line
-			ref={responseRef}
-		>
+		<Line>
 			{props.content}
 		</Line>
 	)
