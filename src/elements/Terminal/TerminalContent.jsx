@@ -97,13 +97,14 @@ const Label = styled.label`
 
 const InputLine = (props) => {
 	const [val, setVal] = useState("");
-	const { commands, setCommand, path, alertHidden } = useContext(DataContext);
+	const { commands, setCommand, path } = useContext(DataContext);
 	const [ counter, setCounter ] = useState(commands.length);
 	const [typing, setTyping] = useState(false);
 	// eslint-disable-next-line
 	const [disabled, setDisabled] = useState(false)
 	const inputRef = useRef();
 	const cursorRef = useRef();
+	let alertHidden = localStorage.getItem("hideHelp")
 	useEffect(() => {
 		if(!disabled){
 			inputRef.current.focus();
@@ -249,7 +250,7 @@ const InputLine = (props) => {
 				onChange = {(e)=>{
 					e.preventDefault()
 					if(e.target.value.length<=100){
-						setVal(e.target.value);
+						setVal(e.target.value.toLowerCase());
 						setTyping(true);
 						e.target.style.width = e.target.value.length + "ch";
 					}
