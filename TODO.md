@@ -9,4 +9,4 @@
 - [x] git log
 - [x] help command auto complete for first time users
 - [x] uname
-- [ ] whoami
+- [x] whoami
