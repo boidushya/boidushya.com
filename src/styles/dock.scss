@@ -1,3 +1,6 @@
+$img-dim: 1.5rem;
+$img-padding: 0.5rem;
+
 .main-contain .dock {
 	position: absolute;
 	bottom: 0px;
@@ -51,18 +54,18 @@
 }
 
 .main-contain .dock-nav ul li img {
-	width: 2rem;
-	height: 2rem;
-	padding: 0.5rem;
+	width: $img-dim;
+	height: $img-dim;
+	padding: $img-padding;
 }
 
 .main-contain .dock-nav ul li.full-width-icon {
 	background: transparent;
-	width: 3rem;
-	height: 3rem;
+	width: $img-dim+2*$img-padding;
+	height: $img-dim+2*$img-padding;
 	& img{
-		width: 3rem;
-		height: 3rem;
+		width: $img-dim+2*$img-padding;
+		height: $img-dim+2*$img-padding;
 		padding: 0;
 	}
 }
@@ -75,7 +78,7 @@
 		color: #FFF;
 		background: rgba(23, 23, 23, 0.85);
 		font-size: 1rem;
-		top: -75%;
+		top: -100%;
 		position: absolute;
 		width: fit-content;
 		white-space: nowrap;
