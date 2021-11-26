@@ -30,6 +30,7 @@ const DockContent = () => {
 									<img src="https://icons-for-free.com/iconfiles/png/512/qemu-1324440219327920651.png" className="img-fluid" alt="mac" />
 								</li>
 							</Link>
+							<div className="separator"/>
 							<Link to="/resume">
 								<li data-title="Resume">
 									<img src="https://cdn.icon-icons.com/icons2/2963/PNG/512/macos_big_sur_folder_icon_186046.png" className="img-fluid" alt="mac" />

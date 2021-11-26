@@ -86,3 +86,11 @@ $img-padding: 0.5rem;
 		padding: 0.25rem 0.75rem;
 	}
 }
+
+.main-contain .dock-nav ul .separator {
+	width: 0.1rem;
+	height: $img-dim+($img-padding);
+	border-radius: 1000rem;
+	background: rgba(86, 86, 86, 0.8);
+	margin: 0 0.0675rem;
+}
