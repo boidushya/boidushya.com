@@ -5,6 +5,7 @@ import Draggable from 'react-draggable';
 import bg from "@static/bg5small.jpg";
 import theme from "@styles/theme";
 import AlertContent from "@elements/Alert/AlertContent";
+import DockContent from "@elements/Dock/DockContent";
 
 const Wrapper = styled.div`
 	display: grid;
@@ -62,6 +63,7 @@ const Default = (props) => {
 					</Container>
 				</Draggable>
 			</Wrapper>
+			<DockContent/>
 		</>
 	)
 }

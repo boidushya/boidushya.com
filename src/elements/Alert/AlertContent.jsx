@@ -136,7 +136,7 @@ const AlertContent = () => {
 			if(timeSpentSec%shakeInterval===0){
 				containerRef.current.classList.add("shake");
 				setTimeout(() => {
-					containerRef.current.classList.remove("shake");
+					containerRef.current?.classList.remove("shake");
 				}, 5000);
 			}
 		},1000);
