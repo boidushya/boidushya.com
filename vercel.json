@@ -19,7 +19,7 @@
 			}
 		]
 	}],
-	"rewrites": [{
+	"redirects": [{
 		"source": "/gh",
 		"destination": "https://github.com/boidushya",
 		"statusCode": 301
@@ -27,7 +27,8 @@
 		"source": "/resume_link",
 		"destination": "https://firebasestorage.googleapis.com/v0/b/boidushya.appspot.com/o/Boidushya%27s%20Resume.pdf?alt=media",
 		"statusCode": 301
-	}, {
+	}],
+	"rewrites": [{
 		"source": "/:path*",
 		"has": [{
 			"type": "host",
