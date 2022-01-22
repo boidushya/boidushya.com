@@ -18,5 +18,20 @@
 				"value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Range"
 			}
 		]
+	}],
+	"rewrites": [{
+		"source": "/:path*",
+		"has": [{
+			"type": "host",
+			"value": "gh.boidushya.com"
+		}],
+		"destination": "https://github.com/boidushya/:path*"
+	}, {
+		"source": "/:path*",
+		"has": [{
+			"type": "host",
+			"value": "resume.boidushya.com"
+		}],
+		"destination": "https://firebasestorage.googleapis.com/v0/b/boidushya.appspot.com/o/Boidushya%27s%20Resume.pdf?alt=media"
 	}]
 }
