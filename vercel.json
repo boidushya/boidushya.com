@@ -20,18 +20,26 @@
 		]
 	}],
 	"rewrites": [{
+		"source": "/gh",
+		"destination": "https://github.com/boidushya",
+		"statusCode": 301
+	}, {
+		"source": "/resume_link",
+		"destination": "https://firebasestorage.googleapis.com/v0/b/boidushya.appspot.com/o/Boidushya%27s%20Resume.pdf?alt=media",
+		"statusCode": 301
+	}, {
 		"source": "/:path*",
 		"has": [{
 			"type": "host",
 			"value": "gh.boidushya.com"
 		}],
-		"destination": "https://github.com/boidushya/:path*"
+		"destination": "/gh/:path*"
 	}, {
 		"source": "/:path*",
 		"has": [{
 			"type": "host",
 			"value": "resume.boidushya.com"
 		}],
-		"destination": "https://firebasestorage.googleapis.com/v0/b/boidushya.appspot.com/o/Boidushya%27s%20Resume.pdf?alt=media"
+		"destination": "/resume_link/:path*"
 	}]
 }
