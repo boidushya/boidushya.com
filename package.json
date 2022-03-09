@@ -19,7 +19,7 @@
 		"sass": "^1.35.1",
 		"simplebar-react": "^2.3.4",
 		"styled-components": "^5.3.0",
-		"v86": "^1.0.5",
+		"v86": "git+https://github.com/copy/v86.git",
 		"web-vitals": "^1.0.1"
 	},
 	"scripts": {
