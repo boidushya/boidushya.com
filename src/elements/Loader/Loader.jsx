@@ -7,7 +7,7 @@ const LoadingContainer = styled.div`
 	width: 100%;
 	height: 100%;
 	background: ${theme.bodyBg};
-`
+`;
 
 const Loader = () => {
 	return (
@@ -27,7 +27,7 @@ const Loader = () => {
 				<div className="spinner-blade"></div>
 			</div>
 		</LoadingContainer>
-	)
-}
+	);
+};
 
-export default Loader
+export default Loader;

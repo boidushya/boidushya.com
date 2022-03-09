@@ -6,13 +6,11 @@ const VSCodeContent = lazy(() => import("@elements/VSCode/VSCodeContent"));
 const VSCode = () => {
 	return (
 		<Default height="90%" heading="Visual Studio Code" resizable={false}>
-			<Suspense fallback={
-				<Loader/>
-			}>
-				<VSCodeContent/>
+			<Suspense fallback={<Loader />}>
+				<VSCodeContent />
 			</Suspense>
 		</Default>
-	)
-}
+	);
+};
 
-export default VSCode
+export default VSCode;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import HeadingBar from "@elements/Window/HeadingBar";
-import Draggable from 'react-draggable';
+import Draggable from "react-draggable";
 import bg from "@static/bg5small.jpg";
 import theme from "@styles/theme";
 import AlertContent from "@elements/Alert/AlertContent";
@@ -9,63 +9,66 @@ import DockContent from "@elements/Dock/DockContent";
 
 const Wrapper = styled.div`
 	display: grid;
-	place-items:center;
+	place-items: center;
 	min-height: 100vh;
 	background: url(${bg}) no-repeat center center;
 	background-size: cover;
 	overflow: hidden;
-`
+`;
 
 const Container = styled.div`
 	width: 75%;
-	border-radius:0.6rem 0.6rem 0.3rem 0.3rem;
+	border-radius: 0.6rem 0.6rem 0.3rem 0.3rem;
 	box-shadow: ${theme.windowShadow} 0px 1px 4px;
-	resize:${props=>props.resizable?`both`:`none`};
-	overflow:hidden;
+	resize: ${props => (props.resizable ? `both` : `none`)};
+	overflow: hidden;
 	min-width: 70%;
-	min-height:25%;
+	min-height: 25%;
 	max-height: 90%;
 	max-width: 80%;
 	backdrop-filter: blur(1rem);
 	background: ${theme.bodyBgWithOpacity};
-	${props=>props.height&&`height: ${props.height}`}
-`
+	${props => props.height && `height: ${props.height}`}
+`;
 
-const Default = (props) => {
+const Default = props => {
 	// const { setCommand, setPath } = useContext(DataContext);
 	let resizable = false;
-	if(props.resizable === undefined){
+	if (props.resizable === undefined) {
 		resizable = true;
 	}
-	const BOUND = 512
+	const BOUND = 512;
 	return (
 		<>
-			<AlertContent/>
+			<AlertContent />
 			<Wrapper>
 				<Draggable
 					bounds={{
 						top: -128,
 						left: -BOUND,
 						right: BOUND,
-						bottom: BOUND
+						bottom: BOUND,
 					}}
 					handle=".heading-bar"
 				>
 					<Container
 						height={props.height}
 						resizable={resizable}
-						onContextMenu={(e)=>{
-							!props.contextMenu&&e.preventDefault()
+						onContextMenu={e => {
+							!props.contextMenu && e.preventDefault();
 						}}
 					>
-						<HeadingBar altClassName="heading-bar" heading={props.heading}/>
+						<HeadingBar
+							altClassName="heading-bar"
+							heading={props.heading}
+						/>
 						{props.children}
 					</Container>
 				</Draggable>
 			</Wrapper>
-			<DockContent/>
+			<DockContent />
 		</>
-	)
-}
+	);
+};
 
-export default Default
+export default Default;

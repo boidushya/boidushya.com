@@ -16,29 +16,52 @@ const DockContent = () => {
 					<div className="dock-nav">
 						<ul>
 							<Link to="/">
-								<li data-title="Home" className="full-width-icon">
-									<img src={FinderIcon} className="img-fluid" alt="mac"/>
+								<li
+									data-title="Home"
+									className="full-width-icon"
+								>
+									<img
+										src={FinderIcon}
+										className="img-fluid"
+										alt="mac"
+									/>
 								</li>
 							</Link>
 							<Link to="/vscode">
 								<li data-title="VS Code">
-									<img src={CodeIcon} className="img-fluid" alt="mac"/>
+									<img
+										src={CodeIcon}
+										className="img-fluid"
+										alt="mac"
+									/>
 								</li>
 							</Link>
 							<Link to="/git">
 								<li data-title="Git Log">
-									<img src={GithubIcon} className="img-fluid" alt="mac" />
+									<img
+										src={GithubIcon}
+										className="img-fluid"
+										alt="mac"
+									/>
 								</li>
 							</Link>
 							<Link to="/qemu">
 								<li data-title="Qemu">
-									<img src={QemuIcon} className="img-fluid" alt="mac" />
+									<img
+										src={QemuIcon}
+										className="img-fluid"
+										alt="mac"
+									/>
 								</li>
 							</Link>
-							<div className="separator"/>
+							<div className="separator" />
 							<Link to="/resume">
 								<li data-title="Resume">
-									<img src={FolderIcon} className="img-fluid" alt="mac" />
+									<img
+										src={FolderIcon}
+										className="img-fluid"
+										alt="mac"
+									/>
 								</li>
 							</Link>
 						</ul>
@@ -46,7 +69,7 @@ const DockContent = () => {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default DockContent
+export default DockContent;

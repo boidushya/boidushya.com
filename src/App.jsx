@@ -8,10 +8,10 @@ const App = () => {
 	return (
 		<ThemeProvider theme={colors}>
 			<DataProvider>
-				<Routes/>
+				<Routes />
 			</DataProvider>
 		</ThemeProvider>
-	)
-}
+	);
+};
 
-export default App
+export default App;

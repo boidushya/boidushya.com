@@ -6,13 +6,11 @@ const ResumeContent = lazy(() => import("@elements/Resume/ResumeContent"));
 const Resume = () => {
 	return (
 		<Default height="90%" heading="Resume" resizable={false}>
-			<Suspense fallback={
-				<Loader/>
-			}>
-				<ResumeContent/>
+			<Suspense fallback={<Loader />}>
+				<ResumeContent />
 			</Suspense>
 		</Default>
-	)
-}
+	);
+};
 
-export default Resume
+export default Resume;
