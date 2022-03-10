@@ -19,12 +19,12 @@
 		"sass": "^1.35.1",
 		"simplebar-react": "^2.3.4",
 		"styled-components": "^5.3.0",
-		"v86": "git+https://github.com/copy/v86.git",
+		"v86": "^0.3.4",
 		"web-vitals": "^1.0.1"
 	},
 	"scripts": {
-		"start": "craco start",
-		"build": "craco build",
+		"start": "node --max_old_space_size=4096 ./node_modules/@craco/craco/bin/craco start",
+		"build": "node --max_old_space_size=4096 ./node_modules/@craco/craco/bin/craco build",
 		"test": "craco test",
 		"eject": "react-scripts eject"
 	},

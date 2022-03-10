@@ -6,6 +6,7 @@ import bg from "@static/bg5small.jpg";
 import theme from "@styles/theme";
 import AlertContent from "@elements/Alert/AlertContent";
 import DockContent from "@elements/Dock/DockContent";
+import { css } from "styled-components";
 
 const Wrapper = styled.div`
 	display: grid;
@@ -16,23 +17,35 @@ const Wrapper = styled.div`
 	overflow: hidden;
 `;
 
-const Container = styled.div`
+const dimensionConstraints = css`
 	width: 75%;
-	border-radius: 0.6rem 0.6rem 0.3rem 0.3rem;
-	box-shadow: ${theme.windowShadow} 0px 1px 4px;
-	resize: ${props => (props.resizable ? `both` : `none`)};
-	overflow: hidden;
 	min-width: 70%;
 	min-height: 25%;
 	max-height: 90%;
 	max-width: 80%;
+`;
+
+const emulatorDimensions = css`
+	width: fit-content;
+	min-width: 20%;
+	min-height: 25%;
+	max-height: 75%;
+	max-width: 80%;
+`;
+
+const Container = styled.div`
+	width: fit-content;
+	border-radius: 0.6rem 0.6rem 0.3rem 0.3rem;
+	box-shadow: ${theme.windowShadow} 0px 1px 4px;
+	resize: ${props => (props.resizable ? `both` : `none`)};
+	overflow: hidden;
+	${props => (!props.isEmulator ? dimensionConstraints : emulatorDimensions)}
 	backdrop-filter: blur(1rem);
 	background: ${theme.bodyBgWithOpacity};
 	${props => props.height && `height: ${props.height}`}
 `;
 
 const Default = props => {
-	// const { setCommand, setPath } = useContext(DataContext);
 	let resizable = false;
 	if (props.resizable === undefined) {
 		resizable = true;
@@ -54,6 +67,7 @@ const Default = props => {
 					<Container
 						height={props.height}
 						resizable={resizable}
+						isEmulator={props.heading === "qemu"}
 						onContextMenu={e => {
 							!props.contextMenu && e.preventDefault();
 						}}
