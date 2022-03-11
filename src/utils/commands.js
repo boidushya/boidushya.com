@@ -120,7 +120,7 @@ let commandList = [
 		response: "",
 		subPathStrict: [false],
 		description:
-			"a linux emulator that runs right on your browser (I had to flex I'm sorry)",
+			"an Operating System emulator that runs right on your browser (I had to flex I'm sorry)",
 	},
 	{
 		name: ["help"],

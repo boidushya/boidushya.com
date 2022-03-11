@@ -7,6 +7,7 @@ import theme from "@styles/theme";
 import AlertContent from "@elements/Alert/AlertContent";
 import DockContent from "@elements/Dock/DockContent";
 import { css } from "styled-components";
+import { useLocation } from "react-router-dom";
 
 const Wrapper = styled.div`
 	display: grid;
@@ -46,6 +47,7 @@ const Container = styled.div`
 `;
 
 const Default = props => {
+	const { pathname } = useLocation();
 	let resizable = false;
 	if (props.resizable === undefined) {
 		resizable = true;
@@ -53,7 +55,9 @@ const Default = props => {
 	const BOUND = 512;
 	return (
 		<>
-			<AlertContent />
+			<AlertContent
+				type={pathname.includes("qemu") ? `qemu` : `hideHelp`}
+			/>
 			<Wrapper>
 				<Draggable
 					bounds={{

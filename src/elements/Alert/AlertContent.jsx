@@ -104,25 +104,42 @@ const ContentBody = styled.div`
 	font-weight: 600;
 `;
 
-const AlertContent = () => {
+const AlertContent = ({ type }) => {
+	const [textContent, setTextContent] = useState("");
 	const [time, setTime] = useState("now");
 	const { alertHidden, setAlertHidden } = useContext(DataContext);
 	const [source, setSource] = useState(null);
 	const closeRef = useRef();
 	const containerRef = useRef();
 	useEffect(() => {
+		switch (type) {
+			case "hideHelp":
+				setTextContent("Type help to get started");
+				break;
+			case "qemu":
+				setTextContent(
+					"This page is still under development! You might experience visual glitches, ROM issues, etc. On top of that, since it downloads a 16.8 mb OS image, it might take a while to work properly. In such circumstances, try refreshing the page. If you're still having issues, please open an issue on GitHub."
+				);
+				break;
+			default:
+				setTextContent("Cannot load alert message!");
+				break;
+		}
+
 		const img = new Image();
 		img.src = things;
 		img.onload = () => setSource(things);
+		//eslint-disable-next-line
 	}, []);
 	useEffect(() => {
 		if (alertHidden) {
 			containerRef.current.classList.remove("showAlert");
-			localStorage.setItem("hideHelp", true);
+			localStorage.setItem(`alert__${type}`, true);
 		}
+		//eslint-disable-next-line
 	}, [alertHidden]);
 	useEffect(() => {
-		let help = localStorage.getItem("hideHelp");
+		let help = localStorage.getItem(`alert__${type}`);
 		if (!help && source && !alertHidden) {
 			containerRef.current.classList.add("showAlert");
 		}
@@ -174,7 +191,7 @@ const AlertContent = () => {
 						<Title>THINGS</Title>
 						<Time>{time}</Time>
 					</Header>
-					<ContentBody>Type help to get started</ContentBody>
+					<ContentBody>{textContent}</ContentBody>
 				</Content>
 			</Container>
 		</Wrapper>
