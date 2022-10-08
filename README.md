@@ -1,7 +1,6 @@
 
 <h2 align="center">
-
-boidushya.com Website - v2.0<br/>
+<br/>
 
 <a  href="http://boidushya.com/"  target="_blank">boidushya.com</a>
 
@@ -40,16 +39,10 @@ boidushya.com Website - v2.0<br/>
   
 
 <h3 align="center">
-
-🔹
-
-<a  href="https://github.com/boidushya/boidushya.com/issues">Report Bug</a> &nbsp; &nbsp;
-
-🔹
-
-<a  href="https://github.com/boidushya/boidushya.com/issues">Request Feature</a>
-
+🔹<a  href="https://github.com/boidushya/boidushya.com/issues">Report Bug</a> &nbsp; &nbsp;
+🔹<a  href="https://github.com/boidushya/boidushya.com/issues">Request Feature</a>
 </h3>
+  
 
   
 
@@ -145,5 +138,3 @@ You will find all the components used and you can edit your information accordin
 Give a ⭐ if you like this website!
 
   
-// You may add your buy me a coffee link here!
-<a  href="/"  target="_blank"><img  src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png"  alt="Buy Me A Coffee"  height= "60px"  width= "217px" ></a>
