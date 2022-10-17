@@ -7,7 +7,7 @@ const ProjectsContent = lazy(() =>
 
 const Projects = () => {
 	return (
-		<Default height="90%" heading="Projects" resizable={false}>
+		<Default height="90%" heading="Projects" resizable={false} programName="Projects">
 			<Suspense fallback={<Loader />}>
 				<ProjectsContent />
 			</Suspense>
