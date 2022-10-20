@@ -10,3 +10,4 @@
 -   [x] help command auto complete for first time users
 -   [x] uname
 -   [x] whoami
+-   [x] [menu bar](https://github.com/boidushya/boidushya.com/pull/6)
