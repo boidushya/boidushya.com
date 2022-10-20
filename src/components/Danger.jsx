@@ -6,7 +6,7 @@ const Zone = lazy(() => import("@elements/Danger/Zone"));
 
 const VSCode = () => {
 	return (
-		<Default heading="Rick Astley - Never Gonna Give You Up (Official Music Video)">
+		<Default heading="Rick Astley - Never Gonna Give You Up (Official Music Video)" programName="YouTube">
 			<Suspense fallback={<Loader />}>
 				<Zone />
 			</Suspense>

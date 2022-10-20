@@ -5,7 +5,7 @@ const VSCodeContent = lazy(() => import("@elements/VSCode/VSCodeContent"));
 
 const VSCode = () => {
 	return (
-		<Default height="90%" heading="Visual Studio Code" resizable={false}>
+		<Default height="90%" heading="Visual Studio Code" resizable={false} programName="Code">
 			<Suspense fallback={<Loader />}>
 				<VSCodeContent />
 			</Suspense>

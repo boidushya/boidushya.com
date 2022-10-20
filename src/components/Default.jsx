@@ -6,6 +6,7 @@ import bg from "@static/bg5small.jpg";
 import theme from "@styles/theme";
 import AlertContent from "@elements/Alert/AlertContent";
 import DockContent from "@elements/Dock/DockContent";
+import MenuContent from "@elements/Menu/MenuContent";
 import { css } from "styled-components";
 import { useLocation } from "react-router-dom";
 
@@ -55,6 +56,7 @@ const Default = props => {
 	const BOUND = 512;
 	return (
 		<>
+			<MenuContent programName={props.programName} />
 			<AlertContent
 				type={pathname.includes("qemu") ? `qemu` : `hideHelp`}
 			/>
