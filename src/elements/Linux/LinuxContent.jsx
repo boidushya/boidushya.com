@@ -21,7 +21,6 @@ const Arch = () => {
 					url: "https://unpkg.com/react-95-fiber/binaries/os.img",
 				},
 				autostart: true,
-				disable_speaker: true,
 			});
 		}
 		main();
