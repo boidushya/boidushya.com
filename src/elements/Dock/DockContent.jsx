@@ -5,6 +5,7 @@ import CodeIcon from "@static/code.png";
 import GithubIcon from "@static/github.png";
 import QemuIcon from "@static/qemu.png";
 import FolderIcon from "@static/folder.png";
+import FounderIcon from "@static/founder.jpg";
 import DopeIcon from "@static/dope.svg";
 import { Link } from "react-router-dom";
 
@@ -59,6 +60,15 @@ const DockContent = () => {
 								<li data-title="This Website Is Dope">
 									<img
 										src={DopeIcon}
+										className="img-fluid"
+										alt="dope"
+									/>
+								</li>
+							</a>
+							<a href="https://founder.boidushya.com">
+								<li data-title='Minimal "Founder-esque" Website'>
+									<img
+										src={FounderIcon}
 										className="img-fluid"
 										alt="dope"
 									/>
