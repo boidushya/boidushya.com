@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import HeadingBar from "@elements/Window/HeadingBar";
 import Draggable from "react-draggable";
-import bg from "@static/bg5small.jpg";
+import bg from "@static/bg-new.jpeg";
 import theme from "@styles/theme";
 import AlertContent from "@elements/Alert/AlertContent";
 import DockContent from "@elements/Dock/DockContent";
