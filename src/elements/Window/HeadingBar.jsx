@@ -37,11 +37,14 @@ const StyledDot = styled.div`
 	position: relative;
 	background: ${props => props.variant && props.variant};
 	border: 1px solid ${props => props.variant && props.variant.darken(0.175)};
-	height: 1rem;
-	width: 1rem;
+	height: 0.75rem;
+	width: 0.75rem;
 	border-radius: 50%;
-	margin: 0 0 0 0.75rem;
+	margin: 0 0 0 0.5rem;
 	cursor: pointer;
+	&:first-child {
+		margin-left: 0.75rem;
+	}
 	&:after {
 		content: "";
 		height: 0.3rem;
