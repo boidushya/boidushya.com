@@ -4,7 +4,7 @@ import BodyContent from "@elements/Window/BodyContent";
 
 const Iframe = styled.iframe`
 	width: 100%;
-	height: 95%;
+	height: calc(100% - 2.225rem);
 	border: none;
 `;
 
