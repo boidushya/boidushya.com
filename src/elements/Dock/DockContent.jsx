@@ -1,6 +1,6 @@
 import React from "react";
 import "@styles/dock.scss";
-import FinderIcon from "@static/finder.png";
+import TerminalIcon from "@static/terminal.png";
 import CodeIcon from "@static/code.png";
 import GithubIcon from "@static/github.png";
 import QemuIcon from "@static/qemu.png";
@@ -19,11 +19,11 @@ const DockContent = () => {
 						<ul>
 							<Link to="/">
 								<li
-									data-title="Home"
+									data-title="Terminal"
 									className="full-width-icon"
 								>
 									<img
-										src={FinderIcon}
+										src={TerminalIcon}
 										className="img-fluid"
 										alt="mac"
 									/>
