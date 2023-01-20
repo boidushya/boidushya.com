@@ -70,8 +70,9 @@ colors**
 
 **🧱 Most features built from scratch, including the
 [dock](https://codesandbox.io/p/sandbox/mac-dock-react-sz5dxf?file=%2Fsrc%2Findex.css&selection=%5B%7B%22endColumn%22%3A2%2C%22endLineNumber%22%3A79%2C%22startColumn%22%3A1%2C%22startLineNumber%22%3A75%7D%5D)**
-(Huge thanks to @PuruVJ for the inspiration! You can check out his version using
-svelte and popmotion [here](https://github.com/PuruVJ/macos-web-svelte-dock)
+(Huge thanks to [@PuruVJ](https://github.com/PuruVJ) for the inspiration! You
+can check out his version using svelte and popmotion
+[here](https://github.com/PuruVJ/macos-web-svelte-dock)
 
 ## Getting Started
 
