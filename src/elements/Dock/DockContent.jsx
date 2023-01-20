@@ -8,81 +8,61 @@ import FolderIcon from "@static/folder.png";
 import FounderIcon from "@static/founder.jpg";
 import DopeIcon from "@static/dope.svg";
 import { Link } from "react-router-dom";
+import { useDockStore } from "@contexts/Dock/Dock";
+import DockItem from "./DockItem";
 
 const DockContent = () => {
+	const setMousePosX = useDockStore(state => state.setMousePosX);
+	const handleMouseOver = e => {
+		setMousePosX(e.clientX);
+	};
+
+	const handleMouseOut = () => {
+		setMousePosX(null);
+	};
 	return (
 		<div className="main-contain">
 			<div className="container">
-				<div className="dock">
+				<div
+					className="dock"
+					onMouseMove={handleMouseOver}
+					onMouseLeave={handleMouseOut}
+				>
 					<span></span>
 					<div className="dock-nav">
 						<ul>
 							<Link to="/">
-								<li
-									data-title="Terminal"
-									className="full-width-icon"
-								>
-									<img
-										src={TerminalIcon}
-										className="img-fluid"
-										alt="mac"
-									/>
-								</li>
+								<DockItem
+									img={TerminalIcon}
+									title="Terminal"
+									fullWidth
+								/>
 							</Link>
 							<Link to="/vscode">
-								<li data-title="VS Code">
-									<img
-										src={CodeIcon}
-										className="img-fluid"
-										alt="mac"
-									/>
-								</li>
+								<DockItem img={CodeIcon} title="VS Code" />
 							</Link>
 							<Link to="/git">
-								<li data-title="Git Log">
-									<img
-										src={GithubIcon}
-										className="img-fluid"
-										alt="mac"
-									/>
-								</li>
+								<DockItem img={GithubIcon} title="Git Log" />
 							</Link>
 							<Link to="/qemu">
-								<li data-title="Qemu">
-									<img
-										src={QemuIcon}
-										className="img-fluid"
-										alt="mac"
-									/>
-								</li>
+								<DockItem img={QemuIcon} title="Qemu" />
 							</Link>
 							<a href="https://dope.boidushya.com">
-								<li data-title="This Website Is Dope">
-									<img
-										src={DopeIcon}
-										className="img-fluid"
-										alt="dope"
-									/>
-								</li>
+								<DockItem img={DopeIcon} title="dope" />
 							</a>
 							<a href="https://founder.boidushya.com">
-								<li data-title='Minimal "Founder-esque" Website'>
-									<img
-										src={FounderIcon}
-										className="img-fluid"
-										alt="dope"
-									/>
-								</li>
+								<DockItem
+									img={FounderIcon}
+									fullWidth
+									title='Minimal "Founder-esque" Website'
+								/>
 							</a>
 							<div className="separator" />
 							<Link to="/resume">
-								<li data-title="Resume">
-									<img
-										src={FolderIcon}
-										className="img-fluid"
-										alt="mac"
-									/>
-								</li>
+								<DockItem
+									img={FolderIcon}
+									title="Minimal Resume"
+								/>
 							</Link>
 						</ul>
 					</div>

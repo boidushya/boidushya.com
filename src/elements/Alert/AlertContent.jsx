@@ -29,7 +29,8 @@ const Container = styled.div`
 	transition: right 0.7s cubic-bezier(0.64, -0.5, 0.16, 1);
 	user-select: none;
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-	z-index: 5;
+	z-index: 100;
+	margin-top: 2rem;
 	.hidden {
 		opacity: 0;
 		transition: opacity 0.15s;
