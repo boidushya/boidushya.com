@@ -45,6 +45,13 @@ const Container = styled.div`
 	backdrop-filter: blur(1rem);
 	background: ${theme.bodyBgWithOpacity};
 	${props => props.height && `height: ${props.height}`}
+	@media (max-width: 640px) {
+		max-width: 100%;
+		width: calc(100% - 4rem);
+		max-height: 100%;
+		height: calc(100% - 10rem);
+		margin-bottom: 6rem;
+	}
 `;
 
 const Default = props => {
