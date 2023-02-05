@@ -14,19 +14,26 @@
 	font-size: 0.825rem;
 	font-weight: 500;
 	top: -1px;
+	.right-side * {
+		cursor: default;
+	}
 	img {
 		height: 70%;
 		padding: 0.1rem;
 		filter: invert(1);
 	}
-	.app-menus > div {
+
+	.app-menus .apple {
+		height: 70%;
+		padding: 0.1rem;
+		margin-right: 0.125rem;
+		margin-left: 0.125rem;
+	}
+
+	.app-menus .menu-trigger,
+	.app-menus .img-container {
 		&:nth-child(2) {
 			font-weight: 700;
-		}
-		.apple {
-			height: 70%;
-			padding: 0.1rem;
-			margin-inline: 0.125rem;
 		}
 		margin-left: 1rem;
 	}
@@ -79,5 +86,16 @@
 		height: 100% !important;
 		display: flex !important;
 		align-items: center;
+	}
+}
+
+button {
+	all: unset;
+	cursor: pointer;
+}
+
+@media (max-width: 640px) {
+	.menu-bar {
+		display: none;
 	}
 }

@@ -100,3 +100,12 @@ $img-padding: 0.5rem;
 	background: rgb(255 255 255 / 50%);
 	margin: 0 0.0675rem;
 }
+
+@media (max-width: 640px) {
+	.main-contain {
+		.dock-nav {
+			margin-bottom: -0.5rem;
+			border-radius: 0.25rem;
+		}
+	}
+}

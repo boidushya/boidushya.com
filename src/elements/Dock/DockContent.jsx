@@ -14,7 +14,30 @@ import DockItem from "./DockItem";
 const DockContent = () => {
 	const setMousePosX = useDockStore(state => state.setMousePosX);
 	const handleMouseOver = e => {
-		setMousePosX(e.clientX);
+		let x;
+		console.log(e.type);
+		if (
+			e.type === "touchstart" ||
+			e.type === "touchmove" ||
+			e.type === "touchend" ||
+			e.type === "touchcancel"
+		) {
+			let evt =
+				typeof e.originalEvent === "undefined" ? e : e.originalEvent;
+			let touch = evt.touches[0] || evt.changedTouches[0];
+			x = touch.pageX;
+		} else if (
+			e.type === "mousedown" ||
+			e.type === "mouseup" ||
+			e.type === "mousemove" ||
+			e.type === "mouseover" ||
+			e.type === "mouseout" ||
+			e.type === "mouseenter" ||
+			e.type === "mouseleave"
+		) {
+			x = e.clientX;
+		}
+		setMousePosX(window.innerWidth > 640 ? x : null);
 	};
 
 	const handleMouseOut = () => {
@@ -27,6 +50,9 @@ const DockContent = () => {
 					className="dock"
 					onMouseMove={handleMouseOver}
 					onMouseLeave={handleMouseOut}
+					onTouchMove={handleMouseOver}
+					onTouchCancel={handleMouseOut}
+					onTouchEnd={handleMouseOut}
 				>
 					<span></span>
 					<div className="dock-nav">
