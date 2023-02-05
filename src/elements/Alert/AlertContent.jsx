@@ -31,6 +31,7 @@ const Container = styled.div`
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 	z-index: 100;
 	margin-top: 2rem;
+	backdrop-filter: blur(0.5rem);
 	.hidden {
 		opacity: 0;
 		transition: opacity 0.15s;
