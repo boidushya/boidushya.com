@@ -78,6 +78,13 @@ let commandList = [
 		description: "view my resume",
 	},
 	{
+		name: ["contact", "./contact", "contact.js", "./contact.js"],
+		action: { CONTACT: "" },
+		response: "",
+		subPathStrict: [false],
+		description: "get in touch with me",
+	},
+	{
 		name: ["projects", "./projects", "projects.app", "./projects.app"],
 		// action: { PROJECTS: "" },
 		action: false,
@@ -176,6 +183,12 @@ const fileList = [
 	},
 	{
 		name: "projects.app",
+		link: "",
+		folder: false,
+		executable: true,
+	},
+	{
+		name: "contact.js",
 		link: "",
 		folder: false,
 		executable: true,

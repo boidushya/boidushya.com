@@ -43,7 +43,6 @@ $img-padding: 0.5rem;
 	display: grid;
 	place-items: center;
 	border-radius: 20%;
-	background: #fafafa;
 	color: #242424;
 	user-select: none;
 	transform-origin: bottom center;
@@ -60,6 +59,7 @@ $img-padding: 0.5rem;
 	border-radius: 25%;
 	overflow: hidden;
 	box-sizing: border-box;
+	background: #fafafa;
 }
 
 .main-contain .dock-nav ul li:hover {

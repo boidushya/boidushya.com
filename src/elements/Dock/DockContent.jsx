@@ -7,6 +7,7 @@ import QemuIcon from "@static/qemu.png";
 import FolderIcon from "@static/folder.png";
 import FounderIcon from "@static/founder.jpg";
 import DopeIcon from "@static/dope.svg";
+import ContactIcon from "@static/contact.png";
 import { Link } from "react-router-dom";
 import { useDockStore } from "@contexts/Dock/Dock";
 import DockItem from "./DockItem";
@@ -15,7 +16,6 @@ const DockContent = () => {
 	const setMousePosX = useDockStore(state => state.setMousePosX);
 	const handleMouseOver = e => {
 		let x;
-		console.log(e.type);
 		if (
 			e.type === "touchstart" ||
 			e.type === "touchmove" ||
@@ -73,6 +73,7 @@ const DockContent = () => {
 							<Link to="/qemu">
 								<DockItem img={QemuIcon} title="Qemu" />
 							</Link>
+
 							<a href="https://dope.boidushya.com">
 								<DockItem img={DopeIcon} title="dope" />
 							</a>
@@ -88,6 +89,13 @@ const DockContent = () => {
 								<DockItem
 									img={FolderIcon}
 									title="Minimal Resume"
+								/>
+							</Link>
+							<Link to="/contact">
+								<DockItem
+									img={ContactIcon}
+									fullWidth
+									title="Contact"
 								/>
 							</Link>
 						</ul>

@@ -83,6 +83,9 @@ const Action = props => {
 				case "PROJECTS":
 					document.location.href = "/projects";
 					break;
+				case "CONTACT":
+					document.location.href = "/contact";
+					break;
 				case "GIT":
 					document.location.href = "/git";
 					break;
