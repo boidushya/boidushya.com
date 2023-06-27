@@ -11,7 +11,7 @@ const ResumeContent = () => {
 	return (
 		<BodyContent>
 			<Iframe
-				src="https://firebasestorage.googleapis.com/v0/b/boidushya.appspot.com/o/Resume_Boidushya_Bhattacharyay.pdf?alt=media"
+				src="https://res.cloudinary.com/boidu/image/upload/v1687855283/Resume.pdf"
 				frameBorder="0"
 				title="Boidushya's Resume"
 			></Iframe>
