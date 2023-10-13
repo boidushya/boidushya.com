@@ -30,7 +30,7 @@
 		},
 		{
 			"source": "/resume_link",
-			"destination": "https://firebasestorage.googleapis.com/v0/b/boidushya.appspot.com/o/Boidushya%27s%20Resume.pdf?alt=media",
+			"destination": "https://res.cloudinary.com/boidu/image/upload/v1697223479/Resume.pdf",
 			"statusCode": 301
 		}
 	],
