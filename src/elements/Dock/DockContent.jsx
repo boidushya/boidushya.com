@@ -3,10 +3,10 @@ import "@styles/dock.scss";
 import TerminalIcon from "@static/terminal.png";
 import CodeIcon from "@static/code.png";
 import GithubIcon from "@static/github.png";
-import QemuIcon from "@static/qemu.png";
 import FolderIcon from "@static/folder.png";
 import FounderIcon from "@static/founder.jpg";
 import DopeIcon from "@static/dope.svg";
+import RangIcon from "@static/rang.png";
 import ContactIcon from "@static/contact.png";
 import { Link } from "react-router-dom";
 import { useDockStore } from "@contexts/Dock/Dock";
@@ -70,12 +70,16 @@ const DockContent = () => {
 							<Link to="/git">
 								<DockItem img={GithubIcon} title="Git Log" />
 							</Link>
-							<Link to="/qemu">
-								<DockItem img={QemuIcon} title="Qemu" />
-							</Link>
 
 							<a href="https://dope.boidushya.com">
 								<DockItem img={DopeIcon} title="dope" />
+							</a>
+							<a href="https://rang.boidushya.com">
+								<DockItem
+									img={RangIcon}
+									fullWidth
+									title="Rang! - The Color Accuracy Game"
+								/>
 							</a>
 							<a href="https://founder.boidushya.com">
 								<DockItem

@@ -90,7 +90,7 @@ let commandList = [
 		action: false,
 		response: "Under construction 🚧🔨",
 		subPathStrict: [false],
-		description: "checkout my projects",
+		description: "check out my projects",
 	},
 	{
 		name: ["neofetch"],
