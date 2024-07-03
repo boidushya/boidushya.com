@@ -2,7 +2,7 @@ import React from "react";
 import "@styles/dock.scss";
 import TerminalIcon from "@static/terminal.png";
 import CodeIcon from "@static/code.png";
-import GithubIcon from "@static/github.png";
+import BetterLyricsIcon from "@static/betterlyrics.png";
 import FolderIcon from "@static/folder.png";
 import FounderIcon from "@static/founder.jpg";
 import DopeIcon from "@static/dope.svg";
@@ -67,9 +67,12 @@ const DockContent = () => {
 							<Link to="/vscode">
 								<DockItem img={CodeIcon} title="VS Code" />
 							</Link>
-							<Link to="/git">
-								<DockItem img={GithubIcon} title="Git Log" />
-							</Link>
+							<a href="https://better-lyrics.boidu.dev">
+								<DockItem
+									img={BetterLyricsIcon}
+									title="Better Lyrics"
+								/>
+							</a>
 
 							<a href="https://dope.boidushya.com">
 								<DockItem img={DopeIcon} title="dope" />
